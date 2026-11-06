@@ -107,7 +107,7 @@
 
 <h2>账户与登录</h2>
 <ul>
-  <li><strong>Microsoft 账户</strong>：走标准 OAuth 2.0（授权码 + PKCE 与设备码两种流），随后按官方流程换取 Xbox Live 与 Minecraft Services 令牌，并读取账户的游戏所有权信息，之后才提供启动。使用微软登录需要一个已通过 Mojang 应用登记的 AppID；本仓库自带的 AppID 尚未通过登记，因此该路径在默认构建里不可用，登录界面会明确提示，用户也可以自行填入已授权的 AppID。</li>
+  <li><strong>Microsoft 账户</strong>：走标准 OAuth 2.0（授权码 + PKCE 与设备码两种流），随后按官方流程换取 Xbox Live 与 Minecraft Services 令牌，并读取账户的游戏所有权信息，之后才提供启动。使用微软登录需要一个已通过 Mojang 应用登记的 AppID；本仓库自带的 AppID 已于 2026-11-06 通过 Mojang 审核，可直接使用（分发衍生构建需自行申请）。</li>
   <li><strong>离线账户</strong>：显式的本地身份，只在本地生成玩家名与 UUID，用于单机世界与允许离线玩家的服务器。它不向 Microsoft、Realms 或需要正版验证的服务器认证，也拿不到任何 Microsoft 或 Minecraft 令牌；在线会话失败或过期时不会回退成离线账户。与上游 Prism 相同，只有在已添加一个拥有 Minecraft 的微软账户之后才能新建；启动与下载以拥有游戏的微软账户或第三方验证账户为准。</li>
   <li><strong>第三方账户</strong>：向玩家自己填写的身份验证服务器（运行 authlib-injector 或同类实现的服务器）换取游戏令牌。地址填服务器给玩家的那个验证地址，启动器在它下面接 authserver/authenticate 这类路径，不需要也不应该自己补全；以 LittleSkin 为例，填它给出的形如 https://littleskin.cn/api/yggdrasil 的地址即可。这个账户上有多个角色时，登录会先问要哪一个，之后每次登录都按这个选择去要。令牌与角色名保存在本地；服务器拒绝登录时，显示它自己给出的原因。登录凭据以明文保存在本机的账户文件中，因为该协议只在换取令牌时接受账号密码。实例还需要 authlib-injector 代理，用这类账户启动时启动器会询问并代为安装为实例组件。</li>
 </ul>
@@ -133,7 +133,7 @@
 <div class="en">
   <p><strong>What this is.</strong> Komorebi Launcher is a free, open-source Minecraft: Java Edition launcher for players in mainland China, a GPL-3.0 derivative of Prism Launcher. Everything is published in the repository linked above; there is no closed or obfuscated component, and no binaries are hosted anywhere else.</p>
 
-  <p><strong>What we are asking for.</strong> Approval of our own application (client) ID for the Java game service APIs, so that our users can sign in with their own Microsoft accounts inside our launcher.</p>
+  <p><strong>Current status.</strong> Our own application (client) ID was approved by Mojang Enforcement on 2026-11-06, confirmed by completing the full chain against the live services rather than by reading the notification, which is a batch email that names no application. This section documents the design that approval applies to.</p>
 
   <p><strong>The authentication chain we implement.</strong> Authorization code with PKCE, or the device code flow, against the Microsoft identity platform. The launcher requests Xbox access, obtains the Xbox Live and XSTS tokens, exchanges them at <code>login_with_xbox</code>, and checks the player's Java profile and Minecraft license. A Microsoft account counts toward launching or downloading only when that check passes. The tokens it is issued are kept in the launcher's local account file so the player does not sign in on every launch, and are sent only to the official Microsoft, Xbox Live and Minecraft Services endpoints. It does not use those endpoints to obtain game content for redistribution.</p>
 
