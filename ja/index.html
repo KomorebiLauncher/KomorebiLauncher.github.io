@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Komorebi Launcher — 中国大陸のネットワーク環境に向けたオープンソースの Minecraft ランチャー</title>
+<meta name="description" content="Komorebi Launcher は Prism Launcher を元にしたオープンソースの Minecraft: Java Edition ランチャーです。中国大陸のネットワーク環境に向けて、ダウンロードミラー、Java の自動設定、OptiFine の導入、複数のアカウント方式を備えています。">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="../assets/KomorebiLauncher.ico">
+<link rel="alternate" hreflang="zh-CN" href="https://komorebilauncher.github.io/">
+<link rel="alternate" hreflang="ja" href="https://komorebilauncher.github.io/ja/">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+
+<div class="yagasuri" aria-hidden="true"></div>
+
+<header>
+  <nav class="lang" aria-label="语言 / 言語">
+    <a href="../" lang="zh-CN" hreflang="zh-CN">中文</a><a href="./" lang="ja" aria-current="page">日本語</a>
+  </nav>
+  <div class="komorebi" aria-hidden="true"></div>
+  <div class="komorebi b" aria-hidden="true"></div>
+  <div class="hero">
+    <p class="tategaki" aria-hidden="true">木漏れ日<small>こもれび</small></p>
+    <div>
+      <div class="brand">
+        <div class="crest"><img src="../assets/KomorebiLauncher.ico" alt="Komorebi Launcher のアイコン" width="60" height="60"></div>
+        <div>
+          <h1>Komorebi Launcher</h1>
+          <p class="kana">こもれび ランチャー</p>
+        </div>
+      </div>
+      <p class="tag">Prism Launcher を元にした、オープンソースの Minecraft: Java Edition ランチャーでございます。中国大陸のネットワーク環境に合わせて、ダウンロードのミラー、Java の自動設定、OptiFine への対応を加えてございます。</p>
+      <p class="meaning">「Komorebi」は「木漏れ日」、枝葉のあいだから漏れてくる日の光のことですわ。</p>
+      <div class="buttons">
+        <a class="button primary" href="https://github.com/KomorebiLauncher/KomorebiLauncher/releases">最新版をダウンロード</a>
+        <a class="button" href="https://github.com/KomorebiLauncher/KomorebiLauncher">ソースコード</a>
+        <a class="button" href="https://github.com/KomorebiLauncher/KomorebiLauncher/issues">不具合の報告</a>
+      </div>
+      <div class="waka">
+        <span class="uta">木の間より もりくる月の 影見れば 心づくしの 秋は来にけり</span>
+        <span class="src">——『古今和歌集』秋上・よみ人しらず</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<div class="hashigaki">
+  <div class="label">端書き</div>
+  <p>ごきげんよう、はじめましての皆さま。まずは線を一本、引かせてくださいませね。これは<strong>非公式</strong>のランチャーでございまして、Mojang とも Microsoft とも関係はなく、両社の承認や推奨も受けておりませんの。ここを読み飛ばされますと、私、ちょっぴり困ってしまいますわ。</p>
+  <p>以下に書きますのは、「主幹」と記した第参節を除けば、公開済みの 0.2.2 がいま実際にしている事だけでございます。いつかするかもしれない事なんて、書いて差し上げませんわよ？　史料を読む者がいちばん恐れますのは、「するつもりだった」を「した」と取り違える事。自分のものを書くときだって、同じでございますもの。</p>
+</div>
+
+<section id="why">
+  <div class="sec-head"><span class="seal">壱</span><h2><span class="jp">役目</span>なにを解くか</h2></div>
+  <p>国内のプレーヤーが汎用のランチャーを使いますと、よく突き当たるのは三つでございます。Mojang のダウンロード先が遅い、あるいはつながらない。Java のランタイムを自分で探さねばならない。MOD や整合包（モッドパック）の入手口が使いにくい。まあ、どれも頭の痛いお話ですこと。</p>
+  <p>よく聞く説明は「国内向けのランチャーに替えれば済む」というもの。あら、私はこの説明、嫌いではございませんのよ？　ただ、これ一本で語られるのが困るのですわ。三つはそれぞれ原因が違い、補う場所も違うのでございますから。</p>
+  <p>それで Komorebi Launcher ははじめ、上流の機能の骨組みには手を入れず、この三か所を別々に補っておりました。いまはその骨組みそのものも普請にかかっておりますの（第参節にて）。変わらないのは、ダウンロードがすべてプレーヤーご自身の機械と、公式の配信先（あるいはご自分でオンにしたミラー）とのあいだで済むようにしてある事。補う量が少ないのは構いません、補う場所を間違えるほうがずっと困りますもの。ここだけは、ぜったいに譲って差し上げませんでしたわ。</p>
+</section>
+
+<section id="features">
+  <div class="sec-head"><span class="seal">弐</span><h2><span class="jp">機能</span>いまできること</h2></div>
+  <ul class="features">
+    <li data-k="匣"><strong>インスタンス管理</strong>インスタンスごとに .minecraft ディレクトリも設定もアイコンも独立しており、Minecraft 本体とローダーはコンポーネントとして付け外しいたします。インポートとエクスポートもできますのよ。MOD・リソースパック・シェーダー・データパック・ワールド・スクリーンショットはインスタンスの中でそのまま管理でき、Modrinth と CurseForge から探して入れられますし、入れた MOD は一つずつ配布元の版と照らして更新を確かめます。作者がサードパーティのランチャーからの配布を許していない MOD ファイルを、別の配信元から補って落とすかどうかは設定の中にあり、既定ではオフでございます。作者が「否」と申したものを、私が代わりに取りにゆくなんて、はしたない真似はいたしませんわ。</li>
+    <li data-k="鏡"><strong>ダウンロードミラー</strong>既定ではオフですの。ゲーム本体・ライブラリ・リソースは Mojang の公式の配信先から落とします。設定 → API でオンにすれば、三種類ごとにミラーと試す順番を設定できます。どれかが失敗すれば順に次へ回り、公式の配信元はいつも最後の砦として残してございます。詳しくは第肆節にて。ぜひ覗いてみてくださいませ♪</li>
+    <li data-k="薪"><strong><ruby>爪哇<rt>Java</rt></ruby> の自動設定</strong>Minecraft とローダーのバージョンの要件に合わせて、Java ランタイムを自動で選ぶか、ダウンロードいたします。ダウンロードは清華大学オープンソースミラーの Adoptium ミラーを先に試します。許す Java のバージョン範囲を絞ることも、インスタンスのディレクトリに置いた Java を優先させることもできます。バージョンは実際にプログラムを走らせて確かめておりまして、ディレクトリ名から当て推量なんていたしませんわ。だって、ディレクトリ名なんて誰でも気軽に書き換えられますもの。</li>
+    <li data-k="量"><strong>メモリと JVM 引数の提案</strong>この機械のメモリと、このインスタンスの MOD の数から、ヒープの大きさを提案いたします。ガベージコレクションの引数もワンクリックで入れられます。入れるときは、ご自分で書かれた引数を残し、提案が上書きする同じ項目だけを差し替えますのよ。人が手で書いたものをまるごと消してしまうなんて、失礼にもほどがございますでしょう？</li>
+    <li data-k="診"><strong>起動失敗の診断</strong>ゲームが起動できなかったときはログを読み、メモリ不足、Metaspace 不足、Java のバージョンと MOD の不一致、MOD の重複や依存の欠け、mixin の失敗、グラフィックドライバがウィンドウを開けない、テクスチャアトラスのあふれなど、具体的にどれなのかを見分けて、それぞれの直し方をお示しいたします。<ruby>日誌<rt>ログ</rt></ruby>という子は、勝手に喋ってはくれませんの。喋らせる問いを先に用意しておくのが、こちらのお仕事ですわ。</li>
+    <li data-k="便"><strong>サーバー一覧</strong>インスタンス内のサーバーを SLP プロトコルで問い合わせ、接続人数・ゲームのバージョン・遅延を表示いたします。行の上に<ruby>鼠<rt>マウス</rt></ruby>を留めますと、サーバー自身の挨拶文が読めますの。うふふ、私が密かに好きでございますのは、実はこの所ですわ。</li>
+    <li data-k="彩"><strong>OptiFine</strong>バージョンのページから OptiFine を直接選んで導入できます。導入には OptiFine 公式のインストーラーそのものを使い、ランチャーはダウンロードと、一時ディレクトリでの実行と、結果の回収だけを受け持ちます。OptiFine のパッチの仕組みは、どこも写しも作り直しもしておりません。そういう事は、淑女のいたす事ではございませんもの。</li>
+    <li data-k="装"><strong>ローダーと整合包</strong>NeoForge、Forge、Fabric、Quilt、LiteLoader。上流と同じでございますわ。整合包は Modrinth、CurseForge、ATLauncher、FTB、Legacy FTB、Technic から入れられ、.mrpack や MultiMC・PolyMC が書き出した圧縮ファイルも取り込めますのよ。</li>
+    <li data-k="訳"><strong>中国語の画面</strong>簡体字中国語は 100% 訳してございますわ！　翻訳は本組織が自前で建てた静的な配信元（<code>komorebilauncher.github.io/i18n/</code>）から取り寄せ、起動時にファイルのハッシュを確かめてから読み込みます。もともと遊びたいゲームに中国語がなかったのが、私が翻訳を始めたきっかけ。ですから、ここだけは絶対に手を抜きませんことよ。</li>
+  </ul>
+</section>
+
+<section id="fushin">
+  <div class="sec-head"><span class="seal">参</span><h2><span class="jp">主幹の改築</span>普請中</h2></div>
+  <p class="aside">「普請」とは、もとはお寺で人々に呼びかけ、みなで堂を修める事でございます。ランチャーはいま骨組みを入れ替えている最中。出来上がるまで黙っているなんて、私の性に合いませんの。</p>
+  <p>この節に書く事はどれも主幹（main）にすでに取り込まれ、push のたびに CI が各プラットフォームでビルドしておりますけれど、<strong>まだ正式な版としては公開しておりません</strong>。0.2.2 をお使いの方には、まだ届いておりませんのよ。先にお試しになりたい方は、リポジトリの Actions のページから開発版のビルドをお取りくださいませ（GitHub へのログインが要ります。公開前の確認を経ておりませんので、壊れていたら、ぜひお知らせくださいね）。</p>
+  <ul class="roll">
+    <li><strong>新しいコア層</strong>：上流のインスタンス・バージョン・起動のコードは画面と絡み合っていて、一か所直すと周りまで動かさねばなりません。もう、絡まった糸のようでございますわ。そこで脇に <code>launcher/komorebi/</code> という層を新しく立てました。中ではウィジェットを一つも参照せず、素朴なデータだけを渡します。インスタンスの<ruby>型録<rt>カタログ</rt></ruby>、バージョンのマニフェストの読み取りと継承の連なりの統合、起動コマンドラインの組み立て、Java の発見と選択（主バージョンが同じものを優先し、なければ要求より上でいちばん小さいもの）でございます。どの規則も、ゲームにも Java にもネットワークにも頼らない単体テストで、しっかり留めてございますの。</li>
+    <li><strong>すでにつないだ所</strong>：メインウィンドウのインスタンス一覧は、コア層から受け取るように替えました。ツールバー・<ruby>献立<rt>メニュー</rt></ruby>・ショートカットは、これまでどおり選んだインスタンスに効きます。起動の道筋は、いまのところ開発用のプローブの中でだけ通っております。バニラのインスタンスなら、コア層が Java を選び、コマンドラインを組み、実際に起動するところまで参りましたわ。MOD ローダー入りのインスタンスはまだ読めません。読めないものは読めないと、正直に申し上げます。MOD を置き去りにしてゲームだけ起動するなんて、けっしていたしませんわ。画面の「起動」<ruby>釦<rt>ボタン</rt></ruby>は、まだ元の道筋を通っておりますのよ。</li>
+    <li><strong>大正<ruby>浪漫<rt>ロマン</rt></ruby>の装い</strong>：テーマをプログラムに組み込みました。明るい一揃いと、同じ絵から作った暗い一揃いでございます。ランチャー自身の線の言葉で描いたアイコンも添えまして、墨色と月の色の二通りがございます。インスタンスは<ruby>歌留多<rt>カード</rt></ruby>で並び、ウィンドウの配置は三通りを外観の設定からすぐに切り替えられます。既定の縦列、アイコンだけを残す細い列、インスタンスの操作を上へ移す横帯でございます。メインウィンドウの背景画像、その見せ方、暗くする度合い、文字の色と縁取りも設定できますの。「大正<ruby>浪漫<rt>ロマン</rt></ruby>」と申しましても、私の好きなものを一つずつ並べただけでございますけれど。うふふ。</li>
+    <li><strong>国内の整合包</strong>：HMCL と MCBBS 形式の整合包を取り込めるようになりましたの。圧縮ファイルの中身はすべて元どおりにし、マニフェストが別途ダウンロードを求めるファイル（MCBBS が CurseForge のファイル ID で示すものと、両形式の直リンク）は、インスタンスをお渡しする前に取り寄せます。SHA-1 が書いてあれば一つずつ確かめ、CurseForge がもう配っていないものは数えてお知らせいたします。お手元から選んだ整合包は、CurseForge の整合包と同じく、審査を経ていない MOD を並べてご確認をお願いします。マニフェストが行き先のディレクトリの外へ書こうとするパスは、すべてお断りいたします。あら、こっそりお外へ抜け出そうだなんて、いけませんわよ？</li>
+  </ul>
+</section>
+
+<section id="mirror">
+  <div class="sec-head"><span class="seal">肆</span><h2><span class="jp">ダウンロードミラー</span>鏡のしくみ</h2></div>
+  <p class="aside">神話を読む者にとって「鏡」は重い字でございますのよ。八咫鏡は神そのものを映すための鏡ですもの。ここの鏡は、ただの<ruby>硝子<rt>ガラス</rt></ruby>の鏡。ずっと素朴でございますわ。</p>
+  <p>ミラーがすることは、ひとつだけですの。ダウンロードの要求を、別のホストにある同じファイルへ差し替える事でございます。差し替え方は中身の種類ごとに決まっていて、Mojang 自身のホストにしか効きません。表にいたしますと、次のとおりでございます。</p>
+  <div class="ledger-wrap">
+  <table class="ledger">
+    <tr><th>中身</th><th>公式のホスト</th><th>ミラー上の場所</th></tr>
+    <tr><td>バージョン一覧、クライアント jar、Java ランタイム</td><td>piston-meta / piston-data / launcher / launchermeta</td><td>ミラーのルート。ディレクトリ構成はそのまま</td></tr>
+    <tr><td>リソース（assets）</td><td>resources.download.minecraft.net</td><td>ミラーの <code>/assets</code> 接頭辞</td></tr>
+    <tr><td>ライブラリとローダーのライブラリ</td><td>libraries.minecraft.net などの maven ホスト</td><td>順番つきの接頭辞の一覧を、一つずつ試します</td></tr>
+  </table>
+  </div>
+  <p class="note">ミラーは既定ではオフでございます。ミラーのほうが速いとは限りませんもの、勝手につけたりはいたしませんわ。お使いになるなら、設定 → API で切り替えてくださいませ。内蔵のミラーは BMCLAPI と、教育網にある三つのミラーの maven ツリーでございます。Java ランタイムの自動ダウンロードは別の道でして、清華大学オープンソースミラーの Adoptium ミラーを先に試します。ファイルは公式の SHA-256 と一致いたします。ただ、版の指定だけでファイル名を持たない <code>api.adoptium.net</code> の入口は、いまはまだ公式のままでございます。Modrinth や CurseForge などコンテンツ配信プラットフォームのホストは<strong>書き換えの対象外</strong>で、そのファイルはいつもそれぞれの公式の配信先から落とします。ダウンロードはすべてメタデータに書かれたハッシュで確かめ、ミラーが違う中身を返せば検証失敗として扱います。素性の知れないものを、黙って受け取ったりはいたしませんの。</p>
+</section>
+
+<section id="accounts">
+  <div class="sec-head"><span class="seal">伍</span><h2><span class="jp">アカウントとログイン</span>名乗り</h2></div>
+  <p class="aside">名乗りは、相手に信じてもらえて初めて意味を持つものでございます。以下の三つのアカウントの違いも、つまるところ「誰に名乗るか」ですのよ。</p>
+  <ul class="roll">
+    <li><strong>Microsoft アカウント</strong>：標準の OAuth 2.0（認可コード + PKCE と、デバイスコードの二通り。ログインの窓には両方ございます）を通り、公式の手順どおりに Xbox Live と Minecraft Services のトークンへ引き換え、アカウントのゲーム所有情報を読んでから、初めて起動をお出しします。Microsoft ログインには、Mojang のアプリ登録を通った AppID が要ります。このリポジトリに同梱の AppID は 2026-11-06 に Mojang の審査を通っておりますので、そのままお使いいただけますわ（派生ビルドを配布なさる場合は、ご自分で申請してくださいませね）。ログインのあとは、スキンのアップロードと<ruby>外套<rt>マント</rt></ruby>の選択もできますの♪</li>
+    <li><strong>オフラインアカウント</strong>：はっきりとローカルだけの身元でございます。プレーヤー名と UUID を手元で作るだけで、シングルプレイのワールドと、オフラインのプレーヤーを許すサーバーのために使います。Microsoft にも Realms にも、正規の認証を求めるサーバーにも認証いたしませんし、Microsoft や Minecraft のトークンは一つも受け取りません。オンラインのセッションが失敗したり切れたりしても、オフラインアカウントへ落ちることはございません。上流の Prism と同じく、Minecraft を所有する Microsoft アカウントを追加したあとでなければ作れません。起動とダウンロードは、ゲームを所有する Microsoft アカウントか、サードパーティ認証のアカウントを基準にいたします。この敷居は、わざと残してございますのよ。</li>
+    <li><strong>サードパーティのアカウント</strong>：プレーヤーご自身が入力した認証サーバー（authlib-injector やその同類を動かしているサーバー）から、ゲームのトークンを受け取ります。アドレスには、サーバーがプレーヤーに渡している認証用のアドレスをそのまま入れてくださいませ。ランチャーがその下へ authserver/authenticate などのパスをつなぎますので、ご自分で補う必要はございませんし、補うべきでもございません。LittleSkin でしたら、案内されている https://littleskin.cn/api/yggdrasil のような形のアドレスを入れれば済みますわ。そのアカウントに複数のキャラクターがあるときは、最初のログインでどれにするかをお尋ねし、以後のログインはその選択どおりに求めます。トークンとキャラクター名は手元に保存いたします。サーバーがログインを断ったときは、サーバー自身が返した理由をそのままお見せします。それから、先に申し上げておきたい事がひとつございますの。ログインの資格情報は、この機械のアカウントファイルに平文で保存されます。このプロトコルが、アカウントとパスワードをトークンの引き換え時にしか受け付けないためでございます。インスタンスには authlib-injector のエージェントも要りますので、この種のアカウントで起動するときは、ランチャーがお尋ねしたうえで、インスタンスのコンポーネントとして入れて差し上げますわね。</li>
+  </ul>
+</section>
+
+<section id="privacy">
+  <div class="sec-head"><span class="seal">陸</span><h2><span class="jp">プライバシー</span>秘め事なし</h2></div>
+  <p class="aside">「秘め事」とは隠し事の事でございます。ランチャーがどこへ要求を出すのかは、すべて表に並べておきたいのですわ。こそこそするなんて、九条の家風ではございませんもの。</p>
+  <ul class="roll">
+    <li>自前の解析サービスはございません。利用データは集めず、インスタンスの中身も送りませんわ。</li>
+    <li>ネットワークの要求が向かうのは次の所だけでございます。Mojang と Microsoft の公式の配信先。Prism Launcher が公開しているメタデータのサービス（<code>meta.prismlauncher.org</code> のバージョンとローダーの情報、<code>files.prismlauncher.org</code> の 1.5.2 以前の Forge のライブラリ）。プレーヤーがオンにしたミラーと、Java をダウンロードするときの清華大学オープンソースミラー。プレーヤーが閲覧や導入に使うコンテンツ配信プラットフォーム（Modrinth、CurseForge、ATLauncher、FTB、Technic）。プレーヤーご自身が加えた認証サーバー。本組織の翻訳の配信元 <code>komorebilauncher.github.io/i18n/</code>。そして本リポジトリの GitHub Releases（<ruby>新聞<rt>ニュース</rt></ruby>欄の公開のお知らせと、自動更新の確認）。これより外へは、一つも出しておりませんの。</li>
+    <li>スクリーンショットのアップロードには ImgBB を使いますが、画像置き場の資格情報は何も組み込んでおりません。初めてアップロードするときに、プレーヤーご自身の ImgBB の API キーをお尋ねし、この機械の設定にだけ保存いたします。入れなければ、アップロードの機能そのものが現れませんのよ。</li>
+  </ul>
+</section>
+
+<section id="license">
+  <div class="sec-head"><span class="seal">漆</span><h2><span class="jp">ライセンスと出自</span>系図</h2></div>
+  <p class="aside">古代史を読む者は、まず系図を広げてみる癖がついておりますの。</p>
+  <div class="keizu" role="img" aria-label="派生の系図：MultiMC、PolyMC、Prism Launcher、Komorebi Launcher">
+    <span>MultiMC</span><i></i><span>PolyMC</span><i></i><span>Prism Launcher</span><i></i><span class="self">Komorebi Launcher</span>
+  </div>
+  <p>本プログラムは GPL-3.0-only で公開しており、ソースはすべて公開してございます。Prism Launcher の派生物で、Prism Launcher はさらに PolyMC と MultiMC の派生物でございます。上流の著作権表示とライセンスは、プログラム内の<span lang="zh-CN">“关于 → 许可证”</span>（About → License）のページと、リポジトリの <code>COPYING.md</code> にすべて残してあります。系図の名前は、一つも消しておりませんわ。ご先祖さまのお名前を勝手に消すなんて、とんでもない事でございますもの。</p>
+  <p class="note">本プロジェクトは Minecraft のクライアントファイル、リソース、MOD の中身を一切ホストも再配布もいたしません。これらはいつも、プレーヤーご自身の機械が Mojang や各コンテンツ配信プラットフォームの公式の配信先から落とします。Minecraft は Mojang Studios と Microsoft Corporation の商標でございます。</p>
+</section>
+
+<section id="terms">
+  <div class="sec-head"><span class="seal">捌</span><h2><span class="jp">規約・免責・連絡先</span>約定</h2></div>
+  <p class="aside">約定は、きちんと書いておかねばなりませんわね。この節だけは、冗談を控えさせていただきますわ。</p>
+  <ul class="roll">
+    <li><strong>適用される規約</strong>：本プログラムは GPL-3.0-only で公開しております。これでゲームを起動なさるときは、<a href="https://www.minecraft.net/en-us/eula">Minecraft エンドユーザー使用許諾契約</a>と<a href="https://www.minecraft.net/en-us/usage-guidelines">Minecraft 使用ガイドライン</a>も同じく適用されます。</li>
+    <li><strong>免責</strong>：NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.（Minecraft の公式製品ではございません。Mojang とも Microsoft とも関係はなく、両社の承認も推奨も受けておりません。）</li>
+    <li><strong>連絡先</strong>：<a href="https://github.com/KomorebiLauncher">GitHub の組織</a>が唯一の公式の窓口でございます。不具合・ご意見・セキュリティの報告は、組織の下のリポジトリに issue を立ててくださいませ。</li>
+  </ul>
+</section>
+
+<details class="shokan" lang="en">
+  <summary><span class="label" lang="ja">書簡</span><h2>For the Minecraft / Mojang app review team</h2><span class="hint" lang="ja">Mojang のアプリ審査に宛てた英文のお手紙ですわ。開いてお読みくださいませ♪</span></summary>
+
+  <p><strong>What this is.</strong> Komorebi Launcher is a free, open-source Minecraft: Java Edition launcher for players in mainland China, a GPL-3.0 derivative of Prism Launcher. Everything is published in the repository linked above; there is no closed or obfuscated component, and no binaries are hosted anywhere else.</p>
+
+  <p><strong>Current status.</strong> Our own application (client) ID was approved by Mojang Enforcement on 2026-11-06, confirmed by completing the full chain against the live services rather than by reading the notification, which is a batch email that names no application. This section documents the design that approval applies to.</p>
+
+  <p><strong>The authentication chain we implement.</strong> Authorization code with PKCE, or the device code flow, against the Microsoft identity platform. The launcher requests Xbox access, obtains the Xbox Live and XSTS tokens, exchanges them at <code>login_with_xbox</code>, and checks the player's Java profile and Minecraft license. A Microsoft account counts toward launching or downloading only when that check passes. The tokens it is issued are kept in the launcher's local account file so the player does not sign in on every launch, and are sent only to the official Microsoft, Xbox Live and Minecraft Services endpoints. It does not use those endpoints to obtain game content for redistribution.</p>
+
+  <p><strong>Why our own ID rather than an existing one.</strong> Upstream Prism Launcher's source states that a derivative work must ship its own credentials. Using another project's application ID would attribute our traffic to them and leave them unable to revoke it; we hold our own.</p>
+
+  <p><strong>Load on your servers and CDN.</strong> API calls happen only when a player opens an account, browses, or launches. One game file download per version per player, from Mojang's own endpoints. No crawling, no bulk indexing, no background polling, and no redistribution of downloaded files from our side — the mirrors we ship rewrite Mojang-hosted file URLs only, and are used solely by the individual player who enables them. (Separately, the Java runtime downloader prefers a university mirror of Eclipse Adoptium, whose files match Adoptium's published SHA-256.)</p>
+
+  <p><strong>Local profiles, stated plainly.</strong> Offline profiles are explicitly local identities for singleplayer worlds and for servers that allow offline players. They do not authenticate to Microsoft, Realms, or servers that require online accounts, and they receive no Microsoft or Minecraft token. One can be created only after an account that owns Minecraft has been added, and a failed or expired Microsoft sign-in never falls back to an offline profile. Separately, a player may point the launcher at a server operator's own authentication service; that service is added by the player, never contacts Microsoft, and is not part of the Microsoft sign-in path.</p>
+
+  <p><strong>Links.</strong> Source: <a href="https://github.com/KomorebiLauncher/KomorebiLauncher">github.com/KomorebiLauncher/KomorebiLauncher</a> · Releases: <a href="https://github.com/KomorebiLauncher/KomorebiLauncher/releases">/releases</a> · Contact: open an issue in the repository, or use the email given on the application form.</p>
+</details>
+
+<div class="musubi">
+  <div class="orn" aria-hidden="true">◆ ◆ ◆</div>
+  <h2><span class="jp">結び</span></h2>
+  <p>木漏れ日の光は、木のものではございません。木はただ、それを遮らなかっただけ。<ruby>遊戯<rt>ゲーム</rt></ruby>も、MOD も、アカウントも、みな他の方のものですもの。ですからこのランチャーも、その木のようでありたいと思っておりますの。風を少しよけて、あとは光を通すだけ。<ruby>洋燈<rt>ランプ</rt></ruby>を灯す必要もございませんの。</p>
+  <p>壊れているところがございましたら、リポジトリに issue を立てて教えてくださいませ。あそこは私たちの<ruby>倶楽部<rt>クラブ</rt></ruby>だと思ってくださいまし。だって私自身、壊れたものを見るとつい報告してしまう性分ですもの。報告をいただけるのは、うれしいばかりですわ。うふふ♪</p>
+  <p class="sign">令和八年 霜月　<b>九条 詩織</b> 記</p>
+</div>
+
+</main>
+
+<footer>
+  <div class="inner">
+    Komorebi Launcher · GPL-3.0-only · Prism Launcher の派生物（その上流は PolyMC と MultiMC）· Minecraft は Mojang Studios と Microsoft Corporation の商標です · 当サイトはアクセスデータを集めません
+  </div>
+  <div class="yagasuri" aria-hidden="true"></div>
+</footer>
+
+</body>
+</html>

@@ -5,132 +5,148 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Komorebi Launcher — 面向国内网络环境的开源 Minecraft 启动器</title>
 <meta name="description" content="Komorebi Launcher 是基于 Prism Launcher 的开源 Minecraft: Java Edition 启动器，面向国内网络环境，提供下载镜像、Java 自动配置、OptiFine 安装与多种账户方式。">
-<style>
-  :root {
-    --fg: #1c1e21;
-    --muted: #5b6470;
-    --line: #e3e6ea;
-    --bg: #ffffff;
-    --accent: #1f6feb;
-    --card: #f7f8fa;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --fg: #e6e8ea;
-      --muted: #9aa4af;
-      --line: #2c3138;
-      --bg: #16181b;
-      --accent: #6cb2ff;
-      --card: #1d2024;
-    }
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    color: var(--fg);
-    background: var(--bg);
-    font: 16px/1.75 -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
-  }
-  header {
-    border-bottom: 1px solid var(--line);
-    padding: 40px 20px 32px;
-  }
-  main, footer > div { max-width: 880px; margin: 0 auto; }
-  .brand { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
-  .brand img { width: 64px; height: 64px; }
-  h1 { font-size: 28px; margin: 0; letter-spacing: .5px; }
-  .tag { color: var(--muted); margin: 6px 0 0; font-size: 15px; }
-  h2 { font-size: 20px; margin: 40px 0 12px; padding-top: 8px; }
-  p, li { color: var(--fg); }
-  a { color: var(--accent); }
-  .buttons { display: flex; gap: 12px; flex-wrap: wrap; margin: 22px 0 0; }
-  .button {
-    display: inline-block; padding: 10px 18px; border: 1px solid var(--line);
-    border-radius: 8px; text-decoration: none; background: var(--card); font-size: 15px;
-  }
-  .button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
-  ul { padding-left: 22px; }
-  .card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; margin: 16px 0; }
-  table { border-collapse: collapse; width: 100%; font-size: 15px; }
-  th, td { border-bottom: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
-  code { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: 14px; }
-  footer { border-top: 1px solid var(--line); margin-top: 48px; padding: 28px 20px; color: var(--muted); font-size: 14px; }
-  .en { border-left: 3px solid var(--line); padding-left: 18px; }
-  .en h2 { margin-top: 0; }
-  .muted { color: var(--muted); }
-</style>
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="assets/KomorebiLauncher.ico">
+<link rel="alternate" hreflang="zh-CN" href="https://komorebilauncher.github.io/">
+<link rel="alternate" hreflang="ja" href="https://komorebilauncher.github.io/ja/">
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
 
+<div class="yagasuri" aria-hidden="true"></div>
+
 <header>
-  <div class="brand">
-    <img src="assets/icon.png" alt="Komorebi Launcher 图标" width="64" height="64">
+  <nav class="lang" aria-label="语言 / 言語">
+    <a href="./" lang="zh-CN" aria-current="page">中文</a><a href="ja/" lang="ja" hreflang="ja">日本語</a>
+  </nav>
+  <div class="komorebi" aria-hidden="true"></div>
+  <div class="komorebi b" aria-hidden="true"></div>
+  <div class="hero">
+    <p class="tategaki" lang="ja" aria-hidden="true">木漏れ日<small>こもれび</small></p>
     <div>
-      <h1>Komorebi Launcher</h1>
+      <div class="brand">
+        <div class="crest"><img src="assets/KomorebiLauncher.ico" alt="Komorebi Launcher 图标" width="60" height="60"></div>
+        <div>
+          <h1>Komorebi Launcher</h1>
+          <p class="kana" lang="ja">こもれび ランチャー</p>
+        </div>
+      </div>
       <p class="tag">基于 Prism Launcher 的开源 Minecraft: Java Edition 启动器，为国内网络环境做了下载镜像、Java 自动配置与 OptiFine 支持。</p>
+      <p class="meaning">「Komorebi」写作「<span lang="ja">木漏れ日</span>」，是从枝叶之间漏下来的日光<span lang="ja">ですわ</span>。</p>
+      <div class="buttons">
+        <a class="button primary" href="https://github.com/KomorebiLauncher/KomorebiLauncher/releases">下载最新版</a>
+        <a class="button" href="https://github.com/KomorebiLauncher/KomorebiLauncher">源代码</a>
+        <a class="button" href="https://github.com/KomorebiLauncher/KomorebiLauncher/issues">问题反馈</a>
+      </div>
+      <div class="waka">
+        <span class="uta" lang="ja">木の間より もりくる月の 影見れば 心づくしの 秋は来にけり</span>
+        <span class="src">——《古今和歌集》秋上・读人不知</span>
+        <span class="yaku">看那从树间漏下的月影，便知令人百般思量的秋天，已经来了。</span>
+      </div>
     </div>
-  </div>
-  <div class="buttons">
-    <a class="button primary" href="https://github.com/KomorebiLauncher/KomorebiLauncher/releases">下载最新版</a>
-    <a class="button" href="https://github.com/KomorebiLauncher/KomorebiLauncher">源代码</a>
-    <a class="button" href="https://github.com/KomorebiLauncher/KomorebiLauncher/issues">问题反馈</a>
   </div>
 </header>
 
 <main>
 
-<h2>它解决什么问题</h2>
-<p>国内玩家用通用启动器时最常碰到三件事：Mojang 的下载端点慢或连不上、Java 运行库要自己找、以及模组与整合包的下载入口不好用。Komorebi Launcher 不改动上游的功能结构，只在这三点上补齐，并且把所有下载行为都留在玩家自己的机器与官方端点之间。</p>
+<div class="hashigaki">
+  <div class="label" lang="ja">端書き</div>
+  <p><span lang="ja">ごきげんよう</span>，初次见面的各位<span lang="ja">ですわ</span>。开头请容我先划一条线<span lang="ja">ね</span>：这是一个<strong>非官方</strong>的启动器，与 Mojang、Microsoft 都没有隶属关系，也没有得到它们的批准或背书<span lang="ja">ですの</span>。这一条要是读漏了，我可是会<span lang="ja">ちょっと</span>困扰的哦。</p>
+  <p>下面写的，除了标明「主干」的第参节，都是已发布的 0.2.2 此刻实际在做的事<span lang="ja">ですわ</span>；将来也许会做的事，我一概不写。<span lang="ja">だって</span>读史料的人，最怕把「打算做」当成「做过了」——写自己的东西时，也是一样的<span lang="ja">ですもの</span>。</p>
+</div>
 
-<h2>当前功能</h2>
-<ul>
-  <li><strong>实例管理</strong>：每个实例独立目录、独立版本组件，支持导入导出与模组、资源包、世界的浏览与下载（Modrinth 与 CurseForge）。作者不允许第三方启动器转发的模组文件，默认不去别的源补下载，这个选择写在设置里，默认关闭。</li>
-  <li><strong>下载镜像</strong>：游戏本体、资源文件、支持库三类分别配置镜像源与尝试顺序，任一源失败自动按序回退，官方源始终保留为最后兜底。详见下一节。</li>
-  <li><strong>Java 自动配置</strong>：按版本要求自动选择或下载 Java 运行库，可限定允许的 Java 版本区间，也支持把 Java 放在实例目录内优先使用。版本通过实际运行程序确认，不按目录名猜测。</li>
-  <li><strong>内存与 JVM 参数建议</strong>：按这台机器的内存和这个实例的模组数量给出堆的大小，并可一键填入垃圾回收参数；填入时会保留你自己写过的参数，只替换其中被建议覆盖的同一项。</li>
-  <li><strong>启动失败诊断</strong>：游戏没能启动时读取日志，认出内存不足、Metaspace 不足、Java 版本与模组不匹配、模组重复或缺依赖、mixin 失败、显卡驱动打不开窗口、纹理图集溢出等具体是哪一条，并给出对应的改法。</li>
-  <li><strong>服务器列表</strong>：实例内的服务器按 SLP 协议探测，显示在线人数、游戏版本与延迟，鼠标停在一行上能看到服务器自己的欢迎语。</li>
-  <li><strong>OptiFine</strong>：在版本页直接浏览并安装 OptiFine。安装使用 OptiFine 官方安装器本身，启动器只负责下载、在临时目录中运行它并收集结果，不复制、不重制 OptiFine 的任何补丁逻辑。</li>
-  <li><strong>模组加载器</strong>：NeoForge、Forge、Fabric、Quilt、LiteLoader，与上游一致。</li>
-  <li><strong>中文界面</strong>：翻译由本项目自建的静态源提供，启动时校验文件哈希后加载。</li>
-</ul>
+<section id="why">
+  <div class="sec-head"><span class="seal" lang="ja">壱</span><h2><span class="jp" lang="ja">なにを解くか</span>要解的，是哪三件事呢</h2></div>
+  <p>国内玩家用通用启动器时，最常碰上的是三件事<span lang="ja">ですわ</span>：Mojang 的下载端点慢，或者干脆连不上；Java 运行库得自己去找；模组与整合包的下载入口又不好用。<span lang="ja">まあ</span>，三件都叫人头疼呢。</p>
+  <p>常听人说「换一个国内的启动器就好了」。<span lang="ja">あら</span>，我倒不讨厌这种说法<span lang="ja">よ</span>？只是它一句话就把三件事揉成了一件，这就叫人为难了<span lang="ja">ですの</span>。三件事各有各的缘由，该补的地方也各不相同<span lang="ja">ですもの</span>。</p>
+  <p>所以 Komorebi Launcher 起初并不去动上游的功能结构，只在这三处分别补齐；如今那套结构本身也开始翻修了（见第参节）<span lang="ja">ですわ</span>。不变的是，所有下载都只发生在玩家自己的机器与官方端点（或玩家自己开启的镜像）之间。补得少一些不要紧，补错了地方才要紧——这一点，我是<span lang="ja">ぜったい</span>不肯让步的<span lang="ja">ですわよ</span>。</p>
+</section>
 
-<h2>下载镜像是怎么做的</h2>
-<p>镜像只做一件事：把下载请求换成另一个主机上的同一份文件。路径规则按内容类型固定，且只对 Mojang 自己的主机生效。</p>
-<table>
-  <tr><th>内容</th><th>官方主机</th><th>镜像上的位置</th></tr>
-  <tr><td>版本清单、客户端 jar、Java 运行库</td><td>piston-meta / piston-data / launcher / launchermeta</td><td>镜像根路径，目录结构不变</td></tr>
-  <tr><td>资源文件（assets）</td><td>resources.download.minecraft.net</td><td>镜像的 <code>/assets</code> 前缀</td></tr>
-  <tr><td>支持库与加载器库</td><td>libraries.minecraft.net 等 maven 主机</td><td>有序的前缀列表，逐条尝试</td></tr>
-</table>
-<p class="muted">内置的镜像源为 BMCLAPI 与三所教育网镜像的 maven 树。Modrinth、CurseForge 等内容平台的主机<strong>不在重写范围内</strong>，它们的文件始终从各自官方端点下载。所有下载都会校验元数据里给定的哈希，镜像返回错误内容会被当作校验失败处理，而不是静默接受。</p>
+<section id="features">
+  <div class="sec-head"><span class="seal" lang="ja">弐</span><h2><span class="jp" lang="ja">いまできること</span>眼下已经做得到的事</h2></div>
+  <ul class="features">
+    <li data-k="匣"><strong>实例管理</strong>每个实例都有自己的 .minecraft 目录、设置与图标，Minecraft 本体与加载器按组件装拆，也能导入导出<span lang="ja">ですの</span>。模组、资源包、光影包、数据包、存档与<ruby lang="ja">写真<rt>截图</rt></ruby>都在实例里直接管理，可以从 Modrinth 与 CurseForge 搜索安装，已装的模组会逐个去来源站点比对有无更新。作者不允许第三方启动器转发的模组文件，默认不去别的源补下载；这个选择写在设置里，默认关闭。作者都说了「不」<span lang="ja">ですもの</span>，我便不替作者去取<span lang="ja">ですわ</span>。</li>
+    <li data-k="鏡"><strong>下载镜像</strong>默认是关着的<span lang="ja">ですわ</span>，游戏本体、库与资源都走 Mojang 的官方地址。在设置 → API 里打开之后，三类内容可以各自配置镜像源与尝试顺序；哪个源失败了，就按顺序换下一个，官方源始终留作最后一道<span lang="ja">ね</span>。细节写在第肆节，请<span lang="ja">ぜひ</span>翻过去看看♪</li>
+    <li data-k="薪"><strong><ruby lang="ja">爪哇<rt>Java</rt></ruby> 自动配置</strong>按 Minecraft 与加载器的版本要求，自动挑选或下载 Java 运行库，下载时先试清华大学开源镜像站的 Adoptium 镜像。可以限定允许的 Java 版本区间，也可以把 Java 放进实例目录里优先使用。版本是实际把程序跑一遍问出来的，不看目录名去猜<span lang="ja">ですの</span>——<span lang="ja">だって</span>目录名这种东西，谁都能随手改<span lang="ja">ですもの</span>。</li>
+    <li data-k="量"><strong>内存与 JVM 参数建议</strong>按这台机器的内存和这个实例的模组数量，给出堆该开多大，也能一键填入垃圾回收参数。填的时候会留下你自己写过的参数，只替换建议要覆盖的那同一项。别人亲手写下的东西，整段抹掉可就太失礼了<span lang="ja">ですわ</span>。</li>
+    <li data-k="診"><strong>启动失败诊断</strong>游戏没能启动时，去读它留下的日志，认出到底是哪一条：内存不足、Metaspace 不足、Java 版本与模组不匹配、模组重复或缺依赖、mixin 失败、显卡驱动打不开窗口、纹理图集溢出……再给出对应的改法<span lang="ja">ですわ</span>。日志这孩子<span lang="ja">ね</span>，是不会自己开口的；得先备好要问它的话才行<span lang="ja">ですの</span>。</li>
+    <li data-k="便"><strong>服务器列表</strong>实例里的服务器按 SLP 协议去问一声，显示在线人数、游戏版本与延迟。<ruby lang="ja">鼠<rt>鼠标</rt></ruby>停在一行上，能读到服务器自己的<ruby lang="ja">挨拶<rt>欢迎语</rt></ruby>。<span lang="ja">うふふ</span>，这一处，我私下里<span lang="ja">とっても</span>喜欢呢。</li>
+    <li data-k="彩"><strong>OptiFine</strong>在版本页直接浏览并安装 OptiFine。安装用的就是 OptiFine 官方安装器本身，启动器只负责下载、在临时目录里运行它、再把结果收回来<span lang="ja">ですわ</span>。OptiFine 的补丁逻辑，我一处也没有抄，也没有重写——这种事，淑女是不做的<span lang="ja">ですの</span>。</li>
+    <li data-k="装"><strong>加载器与整合包</strong>NeoForge、Forge、Fabric、Quilt、LiteLoader，与上游一致<span lang="ja">ですわ</span>。整合包可以从 Modrinth、CurseForge、ATLauncher、FTB、Legacy FTB、Technic 安装，也能导入 .mrpack 与 MultiMC、PolyMC 导出的压缩包<span lang="ja">よ</span>。</li>
+    <li data-k="訳"><strong>中文界面</strong>简体中文完成度 100%<span lang="ja">ですわ</span>！翻译放在本组织自己搭的静态源（<code>komorebilauncher.github.io/i18n/</code>）上，启动时先校验文件哈希再加载。<span lang="ja">実は</span>我当初<span lang="ja">ね</span>，就是因为想玩的游戏没有中文，才开始做翻译的；所以这一项，我<span lang="ja">絶対に</span>不会马虎哦。</li>
+  </ul>
+</section>
 
-<h2>账户与登录</h2>
-<ul>
-  <li><strong>Microsoft 账户</strong>：走标准 OAuth 2.0（授权码 + PKCE 与设备码两种流），随后按官方流程换取 Xbox Live 与 Minecraft Services 令牌，并读取账户的游戏所有权信息，之后才提供启动。使用微软登录需要一个已通过 Mojang 应用登记的 AppID；本仓库自带的 AppID 已于 2026-11-06 通过 Mojang 审核，可直接使用（分发衍生构建需自行申请）。</li>
-  <li><strong>离线账户</strong>：显式的本地身份，只在本地生成玩家名与 UUID，用于单机世界与允许离线玩家的服务器。它不向 Microsoft、Realms 或需要正版验证的服务器认证，也拿不到任何 Microsoft 或 Minecraft 令牌；在线会话失败或过期时不会回退成离线账户。与上游 Prism 相同，只有在已添加一个拥有 Minecraft 的微软账户之后才能新建；启动与下载以拥有游戏的微软账户或第三方验证账户为准。</li>
-  <li><strong>第三方账户</strong>：向玩家自己填写的身份验证服务器（运行 authlib-injector 或同类实现的服务器）换取游戏令牌。地址填服务器给玩家的那个验证地址，启动器在它下面接 authserver/authenticate 这类路径，不需要也不应该自己补全；以 LittleSkin 为例，填它给出的形如 https://littleskin.cn/api/yggdrasil 的地址即可。这个账户上有多个角色时，登录会先问要哪一个，之后每次登录都按这个选择去要。令牌与角色名保存在本地；服务器拒绝登录时，显示它自己给出的原因。登录凭据以明文保存在本机的账户文件中，因为该协议只在换取令牌时接受账号密码。实例还需要 authlib-injector 代理，用这类账户启动时启动器会询问并代为安装为实例组件。</li>
-</ul>
+<section id="fushin">
+  <div class="sec-head"><span class="seal" lang="ja">参</span><h2><span class="jp" lang="ja">普請中</span>正在翻修骨架这件事</h2></div>
+  <p class="aside">「普請」原是寺里请众人一同动手修造殿堂的意思<span lang="ja">ですわ</span>。启动器眼下正在换骨架，<span lang="ja">でも</span>我不想等完工了才说<span lang="ja">の</span>。</p>
+  <p>这一节写的，都已经合进主干，每次推送都由 CI 在各平台上构建<span lang="ja">ですの</span>；只是<strong>还没有发布成正式版本</strong>，装着 0.2.2 的玩家暂时还碰不到<span lang="ja">ね</span>。想先尝鲜的人，可以到仓库的 Actions 页面取开发版构建（需要登录 GitHub；它们没经过发布前的检查，坏了请<span lang="ja">ぜひ</span>告诉我<span lang="ja">ね</span>）。</p>
+  <ul class="roll">
+    <li><strong>新的内核层</strong>：上游的实例、版本与启动代码和界面缠在一起，改一处，常常要牵动一大片——<span lang="ja">もう</span>，真是缠得乱七八糟<span lang="ja">ですわ</span>。所以我在旁边另起了一层 <code>launcher/komorebi/</code>，里面不引用任何窗口部件，只交出朴素的数据：实例<ruby lang="ja">型録<rt>清单</rt></ruby>；版本清单的读取与继承链的合并；启动命令行的拼装；Java 的发现与挑选（主版本相同者优先，否则取高于要求的最小版本）。这些规则，都用不依赖游戏、Java 与网络的单元测试牢牢钉住了<span lang="ja">ですの</span>。</li>
+    <li><strong>已经接上的部分</strong>：主窗口的实例列表已经改由内核层提供，工具栏、<ruby lang="ja">献立<rt>菜单</rt></ruby>与快捷键照旧作用于所选的实例。启动这一路，目前只在开发用的探针里走通<span lang="ja">ですわ</span>：原版实例已能由内核层挑 Java、拼命令行，真正启动起来。带模组加载器的实例还读不了——读不了，就如实说读不了<span lang="ja">ですの</span>，<span lang="ja">けっして</span>不会丢下模组、只把游戏启动起来。界面上的「启动」<ruby lang="ja">釦<rt>按钮</rt></ruby>，仍走原来的路径<span lang="ja">よ</span>。</li>
+    <li><strong>大正<ruby lang="ja">浪漫<rt>ロマン</rt></ruby>的外观</strong>：主题已经内置进程序，浅色一套，再用同一幅画做出深色的一套；另配一套照启动器自己的线条语言画的图标，墨色与月色两种。实例改用<ruby lang="ja">歌留多<rt>卡片</rt></ruby>显示；窗口有三种布局，可以在外观设置里即时切换：默认的侧栏、只留图标的窄栏、把实例操作移到顶部的横栏。主窗口的背景图、显示方式、压暗程度、文字颜色与描边，也都可以自己设<span lang="ja">ですわ</span>。说是「大正<ruby lang="ja">浪漫<rt>ロマン</rt></ruby>」，<span lang="ja">実は</span>只是把我自己喜欢的东西一样样摆了进去而已<span lang="ja">ですの</span>，<span lang="ja">うふふ</span>。</li>
+    <li><strong>国内整合包</strong>：HMCL 与 MCBBS 格式的整合包可以导入了<span lang="ja">ですわ</span>，压缩包里的内容会完整还原。清单里要求另行下载的文件（MCBBS 用 CurseForge 文件 ID 声明的，以及两种格式里的直链），会在交出实例之前取回；给了 SHA-1 的，逐一校验；CurseForge 已不再提供的，数清楚后告诉你<span lang="ja">ね</span>。从本地选来的整合包，和 CurseForge 整合包一样，先列出未经审查的模组请你确认；清单里想写到目标目录之外的路径，一律拒绝——<span lang="ja">あら</span>，想偷偷溜出门去？那可不行<span lang="ja">ですわ</span>。</li>
+  </ul>
+</section>
 
-<h2>隐私</h2>
-<ul>
-  <li>没有自建的分析服务，不收集使用数据、不上传实例内容。</li>
-  <li>网络请求只发往：Mojang 与微软的官方端点、玩家配置的镜像、Modrinth（模组浏览）、玩家自己添加的身份验证服务器，以及玩家自行配置的翻译源。</li>
-  <li>游戏截图分享（Imgur）在本项目中未配置，功能默认不启用。</li>
-</ul>
+<section id="mirror">
+  <div class="sec-head"><span class="seal" lang="ja">肆</span><h2><span class="jp" lang="ja">鏡のしくみ</span>镜子只换主机，不换内容</h2></div>
+  <p class="aside">「镜」这个字，在读神话的人眼里分量很重<span lang="ja">ですのよ</span>，八咫镜可是要照出神本身的。这里的镜子嘛，不过是一面<ruby lang="ja">硝子<rt>玻璃</rt></ruby>镜，朴素得多<span lang="ja">ですわ</span>。</p>
+  <p>镜像只做一件事<span lang="ja">ですの</span>：把下载请求换到另一个主机上的同一份文件。换法按内容类型固定，而且只对 Mojang 自己的主机生效。按表列在下面<span lang="ja">ね</span>。</p>
+  <div class="ledger-wrap">
+  <table class="ledger">
+    <tr><th>内容</th><th>官方主机</th><th>镜像上的位置</th></tr>
+    <tr><td>版本清单、客户端 jar、Java 运行库</td><td>piston-meta / piston-data / launcher / launchermeta</td><td>镜像根路径，目录结构不变</td></tr>
+    <tr><td>资源文件（assets）</td><td>resources.download.minecraft.net</td><td>镜像的 <code>/assets</code> 前缀</td></tr>
+    <tr><td>支持库与加载器库</td><td>libraries.minecraft.net 等 maven 主机</td><td>有序的前缀列表，逐条尝试</td></tr>
+  </table>
+  </div>
+  <p class="note">镜像默认是关着的<span lang="ja">ですわ</span>。镜像未必更快<span lang="ja">ですもの</span>，所以我不擅自替你打开；要用，请到设置 → API 里切换。内置的镜像源是 BMCLAPI 与三所教育网镜像的 maven 树。自动下载 Java 运行库另走一路：先试清华大学开源镜像站的 Adoptium 镜像，文件与官方的 SHA-256 一致；只带版本参数、不带文件名的 <code>api.adoptium.net</code> 入口，暂时仍走官方。Modrinth、CurseForge 等内容平台的主机<strong>不在重写范围内</strong>，它们的文件始终从各自的官方端点下载。所有下载都会按元数据里给定的哈希校验；镜像若返回了不对的内容，就当作校验失败，不会默默收下——来路不明的东西，我可不收<span lang="ja">の</span>。</p>
+</section>
 
-<h2>许可与出处</h2>
-<p>本程序以 GPL-3.0-only 发布，源码全部公开。它是 Prism Launcher 的派生作品，Prism Launcher 又是 PolyMC 与 MultiMC 的派生作品；上游的版权声明与许可证在程序内“关于 → 许可证”页以及仓库的 <code>COPYING.md</code> 中完整保留。</p>
-<p class="muted">本项目不托管、不再分发任何 Minecraft 客户端文件、资源或模组内容；这些内容始终由玩家自己的机器从 Mojang 或对应内容平台的官方端点下载。Minecraft 是 Mojang Studios 与 Microsoft Corporation 的商标。</p>
+<section id="accounts">
+  <div class="sec-head"><span class="seal" lang="ja">伍</span><h2><span class="jp" lang="ja">名乗り</span>向谁报上名来</h2></div>
+  <p class="aside">报上名来，要对方信得过才算数<span lang="ja">ですわ</span>。下面三种账户的区别，说到底就在于「向谁报名」<span lang="ja">ね</span>。</p>
+  <ul class="roll">
+    <li><strong>Microsoft 账户</strong>：走标准的 OAuth 2.0（授权码 + PKCE 与设备码两种流程，登录窗口里两种都有），随后按官方流程换取 Xbox Live 与 Minecraft Services 的令牌，读过账户的游戏所有权信息之后，才提供启动<span lang="ja">ですわ</span>。微软登录需要一个通过了 Mojang 应用登记的 AppID；本仓库自带的 AppID 已于 2026-11-06 通过 Mojang 审核，可以直接使用<span lang="ja">ですの</span>（分发衍生构建的话，请自行申请<span lang="ja">ね</span>）。登录之后，还可以上传皮肤、选择<ruby lang="ja">外套<rt>披风</rt></ruby>♪</li>
+    <li><strong>离线账户</strong>：明明白白的本地身份，只在本机生成玩家名与 UUID，用于单机世界与允许离线玩家的服务器。它不向 Microsoft、Realms 或需要正版验证的服务器认证，也拿不到任何 Microsoft 或 Minecraft 令牌；在线会话失败或过期时，也不会退回成离线账户<span lang="ja">ですわ</span>。与上游 Prism 相同，要先添加一个拥有 Minecraft 的微软账户才能新建；启动与下载，以拥有游戏的微软账户或第三方验证账户为准。这道门槛，是我刻意留着的<span lang="ja">ですのよ</span>。</li>
+    <li><strong>第三方账户</strong>：向玩家自己填写的身份验证服务器（运行 authlib-injector 或同类实现的服务器）换取游戏令牌。地址请填服务器给你的那个验证地址，启动器会在它下面接上 authserver/authenticate 这类路径，不需要、也不应该自己补全<span lang="ja">ですわ</span>；以 LittleSkin 为例，填它给出的形如 https://littleskin.cn/api/yggdrasil 的地址就好<span lang="ja">よ</span>。账户上有多个角色时，第一次登录会先问你要哪一个，之后每次都按这个选择去要。令牌与角色名保存在本地；服务器拒绝登录时，原样显示它自己给出的理由。<span lang="ja">ただ</span>，有一点要先说清楚<span lang="ja">ですわ</span>：登录凭据以明文保存在本机的账户文件里，因为这个协议只在换取令牌时接受账号密码<span lang="ja">ですの</span>。实例还需要 authlib-injector 代理，用这类账户启动时，启动器会先问过你，再代为装成实例组件<span lang="ja">ね</span>。</li>
+  </ul>
+</section>
 
-<h2>条款、免责声明与联系方式</h2>
-<ul>
-  <li><strong>适用条款</strong>：本程序以 GPL-3.0-only 发布。用它启动游戏时，<a href="https://www.minecraft.net/en-us/eula">Minecraft 最终用户许可协议</a> 与 <a href="https://www.minecraft.net/en-us/usage-guidelines">Minecraft 使用准则</a> 同样适用。</li>
-  <li><strong>免责声明</strong>：NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.（非 Minecraft 官方产品，与 Mojang、Microsoft 均无隶属关系，未获其批准或背书。）</li>
-  <li><strong>联系方式</strong>：<a href="https://github.com/KomorebiLauncher">GitHub 组织</a>是唯一官方渠道；问题、反馈与安全报告请在该组织下的仓库开 issue。</li>
-</ul>
-<h2 style="margin-top:44px">For the Minecraft / Mojang app review team</h2>
-<div class="en">
+<section id="privacy">
+  <div class="sec-head"><span class="seal" lang="ja">陸</span><h2><span class="jp" lang="ja">秘め事なし</span>会往哪里发请求</h2></div>
+  <p class="aside">「秘め事」是藏起来的事<span lang="ja">ですわ</span>。启动器要往哪里发请求，我想全都摆在明处<span lang="ja">の</span>——藏着掖着，可不是九条家的作风哦。</p>
+  <ul class="roll">
+    <li>没有自建的分析服务，不收集使用数据，也不上传实例内容<span lang="ja">ですわ</span>。</li>
+    <li>网络请求只会发往这些地方<span lang="ja">ですの</span>：Mojang 与微软的官方端点；Prism Launcher 提供的公开元数据服务（<code>meta.prismlauncher.org</code> 的版本与加载器信息，<code>files.prismlauncher.org</code> 的 1.5.2 及更早版本的 Forge 依赖库）；玩家开启的镜像，以及下载 Java 时的清华大学开源镜像站；玩家浏览或安装时用到的内容平台（Modrinth、CurseForge、ATLauncher、FTB、Technic）；玩家自己添加的身份验证服务器；本组织的翻译源 <code>komorebilauncher.github.io/i18n/</code>；以及本仓库的 GitHub Releases（新闻栏的发布动态与自动更新检查）。除此之外的去处，没有<span lang="ja">ですわ</span>。</li>
+    <li><ruby lang="ja">写真<rt>截图</rt></ruby>上传用的是 ImgBB，但我没有内置任何图床凭据<span lang="ja">ですの</span>。第一次上传时，请填你自己的 ImgBB API key，它只保存在本机设置里；不填，上传功能就干脆不出现<span lang="ja">ですわ</span>。</li>
+  </ul>
+</section>
+
+<section id="license">
+  <div class="sec-head"><span class="seal" lang="ja">漆</span><h2><span class="jp" lang="ja">系図</span>系谱与许可</h2></div>
+  <p class="aside">读古代史的人<span lang="ja">ね</span>，总习惯先把系谱摊开来看<span lang="ja">ですの</span>。</p>
+  <div class="keizu" role="img" aria-label="派生关系：MultiMC、PolyMC、Prism Launcher、Komorebi Launcher">
+    <span>MultiMC</span><i></i><span>PolyMC</span><i></i><span>Prism Launcher</span><i></i><span class="self">Komorebi Launcher</span>
+  </div>
+  <p>本程序以 GPL-3.0-only 发布，源码全部公开<span lang="ja">ですわ</span>。它是 Prism Launcher 的派生作品，Prism Launcher 又是 PolyMC 与 MultiMC 的派生作品。上游的版权声明与许可证，在程序内“关于 → 许可证”页以及仓库的 <code>COPYING.md</code> 中完整保留——谱上的名字，我一个也没有抹去<span lang="ja">ですの</span>。先人的名字，怎么好随便抹掉呢<span lang="ja">ねえ</span>。</p>
+  <p class="note">本项目不托管、也不再分发任何 Minecraft 客户端文件、资源或模组内容；这些内容始终由玩家自己的机器，从 Mojang 或对应内容平台的官方端点下载。Minecraft 是 Mojang Studios 与 Microsoft Corporation 的商标。</p>
+</section>
+
+<section id="terms">
+  <div class="sec-head"><span class="seal" lang="ja">捌</span><h2><span class="jp" lang="ja">約定</span>条款、免责声明与联系方式</h2></div>
+  <p class="aside">约定的事，就得一板一眼地写<span lang="ja">ですわ</span>。这一节，请容我暂且收起玩笑<span lang="ja">ね</span>。</p>
+  <ul class="roll">
+    <li><strong>适用条款</strong>：本程序以 GPL-3.0-only 发布。用它启动游戏时，<a href="https://www.minecraft.net/en-us/eula">Minecraft 最终用户许可协议</a> 与 <a href="https://www.minecraft.net/en-us/usage-guidelines">Minecraft 使用准则</a> 同样适用。</li>
+    <li><strong>免责声明</strong>：NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.（非 Minecraft 官方产品，与 Mojang、Microsoft 均无隶属关系，未获其批准或背书。）</li>
+    <li><strong>联系方式</strong>：<a href="https://github.com/KomorebiLauncher">GitHub 组织</a>是唯一的官方渠道。问题、反馈与安全报告，请在该组织下的仓库开 issue。</li>
+  </ul>
+</section>
+
+<details class="shokan" lang="en">
+  <summary><span class="label" lang="ja">書簡</span><h2>For the Minecraft / Mojang app review team</h2><span class="hint" lang="zh-CN">写给 Mojang 应用审核的英文书信<span lang="ja">ですわ</span>，请点开阅读<span lang="ja">ね</span></span></summary>
+
   <p><strong>What this is.</strong> Komorebi Launcher is a free, open-source Minecraft: Java Edition launcher for players in mainland China, a GPL-3.0 derivative of Prism Launcher. Everything is published in the repository linked above; there is no closed or obfuscated component, and no binaries are hosted anywhere else.</p>
 
   <p><strong>Current status.</strong> Our own application (client) ID was approved by Mojang Enforcement on 2026-11-06, confirmed by completing the full chain against the live services rather than by reading the notification, which is a batch email that names no application. This section documents the design that approval applies to.</p>
@@ -139,19 +155,28 @@
 
   <p><strong>Why our own ID rather than an existing one.</strong> Upstream Prism Launcher's source states that a derivative work must ship its own credentials. Using another project's application ID would attribute our traffic to them and leave them unable to revoke it; we hold our own.</p>
 
-  <p><strong>Load on your servers and CDN.</strong> API calls happen only when a player opens an account, browses, or launches. One game file download per version per player, from Mojang's own endpoints. No crawling, no bulk indexing, no background polling, and no redistribution of downloaded files from our side — the mirrors we ship rewrite Mojang-hosted file URLs only, and are used solely by the individual player who enables them.</p>
+  <p><strong>Load on your servers and CDN.</strong> API calls happen only when a player opens an account, browses, or launches. One game file download per version per player, from Mojang's own endpoints. No crawling, no bulk indexing, no background polling, and no redistribution of downloaded files from our side — the mirrors we ship rewrite Mojang-hosted file URLs only, and are used solely by the individual player who enables them. (Separately, the Java runtime downloader prefers a university mirror of Eclipse Adoptium, whose files match Adoptium's published SHA-256.)</p>
 
   <p><strong>Local profiles, stated plainly.</strong> Offline profiles are explicitly local identities for singleplayer worlds and for servers that allow offline players. They do not authenticate to Microsoft, Realms, or servers that require online accounts, and they receive no Microsoft or Minecraft token. One can be created only after an account that owns Minecraft has been added, and a failed or expired Microsoft sign-in never falls back to an offline profile. Separately, a player may point the launcher at a server operator's own authentication service; that service is added by the player, never contacts Microsoft, and is not part of the Microsoft sign-in path.</p>
 
   <p><strong>Links.</strong> Source: <a href="https://github.com/KomorebiLauncher/KomorebiLauncher">github.com/KomorebiLauncher/KomorebiLauncher</a> · Releases: <a href="https://github.com/KomorebiLauncher/KomorebiLauncher/releases">/releases</a> · Contact: open an issue in the repository, or use the email given on the application form.</p>
+</details>
+
+<div class="musubi">
+  <div class="orn" aria-hidden="true">◆ ◆ ◆</div>
+  <h2><span class="jp" lang="ja">結び</span></h2>
+  <p>木漏れ日的光，并不是树自己的<span lang="ja">ですわ</span>；树只是没有把它挡住而已。<ruby lang="ja">遊戯<rt>游戏</rt></ruby>、模组、账户，都是别人的东西<span lang="ja">ですもの</span>，所以我希望这个启动器也只做那棵树：替你遮一遮风，然后让光照下来——连<ruby lang="ja">洋燈<rt>油灯</rt></ruby>都不必点<span lang="ja">ね</span>。</p>
+  <p>哪里坏掉了，请到<ruby lang="ja">書庫<rt>仓库</rt></ruby>里开 issue 告诉我<span lang="ja">ですわ</span>——那里嘛，就当作我们的<ruby lang="ja">倶楽部<rt>クラブ</rt></ruby>好了。<span lang="ja">だって</span>我自己也是看见坏掉的东西就忍不住要去报告的性子<span lang="ja">ですもの</span>，收到报告，只会高兴呢<span lang="ja">うふふ</span>♪</p>
+  <p class="sign" lang="ja">令和八年 霜月　<b>九条 詩織</b> 記</p>
 </div>
 
 </main>
 
 <footer>
-  <div>
+  <div class="inner">
     Komorebi Launcher · GPL-3.0-only · 派生自 Prism Launcher，其上游为 PolyMC 与 MultiMC · Minecraft 是 Mojang Studios 与 Microsoft Corporation 的商标 · 本站不收集访问数据
   </div>
+  <div class="yagasuri" aria-hidden="true"></div>
 </footer>
 
 </body>
