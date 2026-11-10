@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Komorebi Lite — 入れてすぐ使える軽量版 Minecraft ランチャー</title>
+<meta name="description" content="Komorebi Lite は Komorebi Launcher の軽量版です。独立した実装で、小さく、実行するだけですぐ動きます。導入 → Java を選ぶ → バージョンを入れる → 起動、という道だけを残しました。">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="../../assets/KomorebiLauncher.ico">
+<link rel="alternate" hreflang="zh-CN" href="https://komorebilauncher.github.io/lite/">
+<link rel="alternate" hreflang="ja" href="https://komorebilauncher.github.io/ja/lite/">
+<link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+
+<div class="yagasuri" aria-hidden="true"></div>
+
+<header>
+  <nav class="lang" aria-label="语言 / 言語">
+    <a href="../../lite/" lang="zh-CN" hreflang="zh-CN">中文</a><a href="./" lang="ja" aria-current="page">日本語</a>
+  </nav>
+  <div class="komorebi" aria-hidden="true"></div>
+  <div class="komorebi b" aria-hidden="true"></div>
+  <div class="hero">
+    <p class="tategaki" aria-hidden="true">木漏れ日<small>こもれび</small></p>
+    <div>
+      <div class="brand">
+        <div class="crest"><img src="../../assets/KomorebiLauncher.ico" alt="Komorebi Lite のアイコン" width="60" height="60"></div>
+        <div>
+          <h1>Komorebi Lite</h1>
+          <p class="kana">こもれび らいと</p>
+        </div>
+      </div>
+      <p class="tag">同じ企画の軽量版でございます。普通のプレイヤーが実際に使うところだけを残しました。導入 → Java を選ぶ → バージョンを入れる → 起動。道は短く。</p>
+      <p class="meaning">「Komorebi」は「木漏れ日」、枝葉のあいだから漏れてくる日の光のことですわ。</p>
+      <div class="buttons">
+        <a class="button primary" href="https://github.com/KomorebiLauncher/KomorebiLauncherLite/releases/latest">軽量版をダウンロード</a>
+        <a class="button" href="https://github.com/KomorebiLauncher/KomorebiLauncherLite">ソースコード</a>
+        <a class="button" href="../../">完全版へ</a>
+      </div>
+      <div class="waka">
+        <span class="uta">木の間より もりくる月の 影見れば 心づくしの 秋は来にけり</span>
+        <span class="src">——『古今和歌集』秋上・よみ人しらず</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<div class="hashigaki">
+  <div class="label">端書き</div>
+  <p>この頁は軽量版のお話でございます。同じ企画に版が二つございまして、<strong>完全版</strong>は Prism Launcher の構造をそのまま受け継いだ、機能の揃ったほう。モデパックの界隈まで手を伸ばせます。<strong>軽量版</strong>は、普通のプレイヤーが実際に使う一本道だけを残したほうでございます。リポジトリも、データの置き場所も、配布物も別々ですの。ですから二つは互いに干渉いたしませんし、片方がもう片方の代わりになることもございません。</p>
+  <p>軽量版のコードは<strong>独立した実装</strong>でございます。アカウントの認証も、バージョンの導入も、起動引数の組み立ても、公開されているプロトコルと形式に沿って書き直したもので、完全版や上流のソースは一切持ち込んでおりません。以下に書きますのは、0.1.5 が今この瞬間にしていることでございます。いつかするつもりのことは、一切書きません。だって「するつもり」を「した」と書いてしまうのは、史料を読む者がいちばん畏れることですもの。</p>
+</div>
+
+<section id="shusha">
+  <div class="sec-head"><span class="seal">壱</span><h2><span class="jp">取捨</span>残したものと、手放したもの</h2></div>
+  <p class="aside">「取捨」と申しますのは、要は諦めが肝心ということでございますわ。手放したものを、なかったことにはいたしません。</p>
+  <div class="ledger-wrap">
+  <table class="ledger">
+    <colgroup><col style="width:18%"><col style="width:41%"><col style="width:41%"></colgroup>
+    <tr><th>項目</th><th>完全版 Komorebi Launcher</th><th>軽量版 Komorebi Lite</th></tr>
+    <tr><td>出自</td><td>Prism Launcher の fork。上流のインスタンスとバージョンの構造をそのまま使う</td><td>独立した実装。認証も導入も起動も書き直し</td></tr>
+    <tr><td>ローダー</td><td>NeoForge、Forge、Fabric、Quilt、LiteLoader</td><td>NeoForge、Forge、Fabric、Quilt、OptiFine</td></tr>
+    <tr><td>モデパック</td><td>Modrinth、CurseForge、ATLauncher、FTB、Legacy FTB、Technic。<code>.mrpack</code> や MultiMC・PolyMC が書き出した圧縮ファイルも取り込める</td><td>CurseForge、Modrinth から検索して導入。手元の <code>.zip</code> と <code>.mrpack</code> も取り込める</td></tr>
+    <tr><td>コンテンツ管理</td><td>MOD、リソースパック、シェーダー、データパック、ワールド、スクリーンショット</td><td>MOD、リソースパック、シェーダー、ワールド、スクリーンショット</td></tr>
+    <tr><td>アカウント</td><td>Microsoft（認可コード + PKCE とデバイスコードの二通り）、オフライン、外部の認証サーバー</td><td>Microsoft（デバイスコード）。サインインしなければオフラインで起動</td></tr>
+    <tr><td>外観</td><td>大正浪漫の主題、三つの配置、背景と文字の色まで指定できる</td><td>明るい一色、素朴な三欄</td></tr>
+    <tr><td>表示言語</td><td>簡体字中国語、English、日本語</td><td>同じ</td></tr>
+    <tr><td>データの置き場所</td><td>別のドライブへ移せる。既存のファイルを写して移すかも選べる</td><td>同じ。インストール不要版で移したあとも、忘れられない（参をご覧くださいまし）</td></tr>
+    <tr><td>コマンドライン</td><td>あり。導入と起動を一通り</td><td>あり。<code>--install</code>、<code>--launch-version</code></td></tr>
+  </table>
+  </div>
+  <p class="note">二つは<strong>データの置き場所も設定も共有いたしません</strong>。片方からもう片方へ移りますと、バージョンもアカウントも入れ直しでございます。ですから、どちらを使うか決めてからお入れくださいましね。</p>
+</section>
+
+<section id="shitate">
+  <div class="sec-head"><span class="seal">弐</span><h2><span class="jp">三つの装い</span>三通りの入れ方、お好きなものを一つ</h2></div>
+  <p class="aside">同じプログラムに、装いが三つございます。どれをお召しになっても、中身は一つも減りませんの。</p>
+  <ul class="features">
+    <li data-k="単"><strong>単体ファイル版</strong><code>.exe</code> 一つ、約 23 MB。実行すればすぐ開きます。Qt もランタイムも入れる必要はございません。USB メモリに入れて持ち歩いても動きますの。</li>
+    <li data-k="携"><strong>ポータブル版</strong>圧縮ファイルで約 15 MB。解いた場所がそのまま置き場所になります。Qt のランタイムも、主題も、OptiFine の導入補助も荷の中にございますから、機械のほうは綺麗なままでございますわ。</li>
+    <li data-k="設"><strong>インストーラー</strong>約 12 MB。スタートメニューに入り、削除の手段も付いてまいります。長くお使いになる方に向いておりますわね。</li>
+  </ul>
+  <p class="note">三つとも同じデータの置き場所（<code>%APPDATA%\KomorebiLauncherLite</code>）を見ておりますの。まず単体ファイル版でお試しになって、お気に召したらインストーラーへ。バージョンもアカウントもワールドも、そのままでございますわ。逆もまた同じでございます。</p>
+</section>
+
+<section id="hikoshi">
+  <div class="sec-head"><span class="seal">参</span><h2><span class="jp">引っ越し</span>別のドライブへ移すとき、忘れないで</h2></div>
+  <p class="aside">お引っ越しの作法は一つだけ。荷は人についてまいりますの。</p>
+  <p>データの置き場所は別のドライブへ移せますの。設定で新しい場所を選びますと、いまあるバージョン、アカウント、ワールドを一緒に写すかとお尋ねいたします。「写して切り替える」は<strong>写す</strong>だけでございまして、元の荷は一つも消しません。新しい場所で何事もなかったと確かめてから、古いほうはご自身でお収めくださいまし。</p>
+  <p>0.1.5 より前には、ここに落とし穴がございましたの。「データはどこにあるか」を覚えているファイルが、<code>%APPDATA%\KomorebiLauncherLite</code> にだけ置かれていたのでございます。ところが場所を移したあとのそのフォルダには、もうバージョンもアカウントもワールドもございません。ですから消してしまうのが自然な流れでございました。消しますと、次に起動したときは初めての起動と見なされ、画面は空っぽ。バージョンもアカウントもワールドも、みんな失せたかのように見えましたのでございますわ。</p>
+  <p>いまは同じ栞を <code>%LOCALAPPDATA%\KomorebiLauncherLite</code> にも控えを置いておりますの。元の栞がなく、控えだけが残っているときは、前回どこを使っていたかをお伝えして、戻るかとお尋ねいたします。「そこへ戻る」を選べば栞を書き戻して自動で再起動、中身はそのまま戻ってまいります。その場所そのものがもう無いときは、一言お伝えするだけで、お尋ねはいたしません。人を空っぽの場所へご案内するなど、それこそ失礼でございますもの。</p>
+</section>
+
+<section id="yakujo">
+  <div class="sec-head"><span class="seal">肆</span><h2><span class="jp">約定</span>条項と免責事項</h2></div>
+  <p class="aside">お約束は、一板一眼に書かねばなりませんわ。この節だけは、冗談をしまいと存じますの。</p>
+  <ul class="roll">
+    <li><strong>適用される条項</strong>：軽量版は GPL-3.0-only で公開しており、ソースはすべて公開されております。これでゲームを起動するときは、<a href="https://www.minecraft.net/en-us/eula">Minecraft エンドユーザーライセンス契約</a> と <a href="https://www.minecraft.net/en-us/usage-guidelines">Minecraft 利用ガイドライン</a> も併せて適用されますの。</li>
+    <li><strong>免責事項</strong>：NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.（Minecraft の公式製品ではなく、Mojang ならびに Microsoft とは何の関係もなく、承認も受けておりません。）</li>
+    <li><strong>連絡先</strong>：<a href="https://github.com/KomorebiLauncher">GitHub の組織</a>が唯一の公式な窓口でございます。軽量版の不具合、ご意見、脆弱性のご報告は <a href="https://github.com/KomorebiLauncher/KomorebiLauncherLite/issues">KomorebiLauncherLite</a> へ issue をお立てくださいまし。</li>
+  </ul>
+  <p class="note">当企画は Minecraft のクライアントファイル、アセット、MOD の類を保管も再配布もいたしません。それらは常にプレイヤーご自身の機械から、Mojang または各コンテンツ配信元の公式の窓口を通して取得されます。Minecraft は Mojang Studios と Microsoft Corporation の商標でございます。</p>
+</section>
+
+<div class="musubi">
+  <div class="orn" aria-hidden="true">◆ ◆ ◆</div>
+  <h2><span class="jp">結び</span></h2>
+  <p>軽量版のすることはほんの僅かでございます。道をまっすぐに整えて、邪魔なものをどけて、あとはプレイヤーにお任せいたしますの。少なくするのは構いませんけれど、間違ったところを直すのは困りますわ。この一点だけは、軽量版でも絶対に譲りませんの。</p>
+  <p>壊れているところがございましたら、リポジトリに issue を立てて教えてくださいませ。軽量版と完全版は別々のリポジトリでございますから、どうぞお門違いのないように。だって私自身、壊れたものを見るとつい報告してしまう性分ですもの。報告をいただけるのは、うれしいばかりですわ。うふふ♪</p>
+  <p class="sign">令和八年 霜月　<b>九条 詩織</b> 記</p>
+</div>
+
+</main>
+
+<footer>
+  <div class="inner">
+    Komorebi Lite · GPL-3.0-only · 完全版 Komorebi Launcher と同じ企画、コードは独立した実装 · Minecraft は Mojang Studios と Microsoft Corporation の商標です · 当サイトはアクセスデータを集めません
+  </div>
+  <div class="yagasuri" aria-hidden="true"></div>
+</footer>
+
+</body>
+</html>
