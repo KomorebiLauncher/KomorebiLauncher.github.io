@@ -59,21 +59,11 @@
 <section id="shusha">
   <div class="sec-head"><span class="seal" lang="ja">壱</span><h2><span class="jp" lang="ja">取捨</span>留下来的，与让出去的</h2></div>
   <p class="aside">「取捨」说到底，就是舍得<span lang="ja">ですわ</span>。让出去的部分，我不打算装作没有。</p>
-  <div class="ledger-wrap">
-  <table class="ledger">
-    <colgroup><col style="width:18%"><col style="width:41%"><col style="width:41%"></colgroup>
-    <tr><th>项目</th><th>完整版 Komorebi Launcher</th><th>轻量版 Komorebi Lite</th></tr>
-    <tr><td>出身</td><td>Prism Launcher 的 fork，沿用上游的实例与版本结构</td><td>独立实现，账号、安装、启动都重写</td></tr>
-    <tr><td>加载器</td><td>NeoForge、Forge、Fabric、Quilt、LiteLoader</td><td>NeoForge、Forge、Fabric、Quilt、OptiFine</td></tr>
-    <tr><td>整合包</td><td>Modrinth、CurseForge、ATLauncher、FTB、Legacy FTB、Technic；可导入 <code>.mrpack</code> 与 MultiMC / PolyMC 导出的压缩包</td><td>CurseForge、Modrinth 搜索与安装；可导入本地 <code>.zip</code> 与 <code>.mrpack</code></td></tr>
-    <tr><td>内容管理</td><td>模组、资源包、光影、数据包、存档、截图</td><td>模组、资源包、光影、存档、截图</td></tr>
-    <tr><td>账户</td><td>微软（授权码 + PKCE 与设备码两种流程）、离线、第三方验证服务器</td><td>微软（设备码流程）；不登录就以离线方式启动</td></tr>
-    <tr><td>外观</td><td>大正浪漫主题，三种布局，背景与文字可自定义</td><td>浅色一套，朴素三栏</td></tr>
-    <tr><td>界面语言</td><td>简体中文、English、日本語</td><td>同左</td></tr>
-    <tr><td>数据目录</td><td>可换到别的盘，可选择顺手把现有文件复制过去</td><td>就在启动器所在的文件夹里；文件夹搬到哪儿，它就跟着到哪儿</td></tr>
-    <tr><td>命令行</td><td>有，覆盖安装与启动</td><td>有，<code>--install</code>、<code>--launch-version</code></td></tr>
-  </table>
-  </div>
+  <ul class="features triad">
+    <li data-k="取"><strong>留下来的</strong>加载器五个：NeoForge、Forge、Fabric、Quilt，外带 OptiFine；整合包从 CurseForge 与 Modrinth 搜来装，本地的 <code>.zip</code>、<code>.mrpack</code> 也接得住；模组到截图都归它管；微软登录走设备码；命令行两条<span lang="ja">ですわ</span>。</li>
+    <li data-k="譲"><strong>让出去的</strong>LiteLoader；ATLauncher、FTB、Technic 几家的整合包，与 MultiMC、PolyMC 导出的包；数据包管理；授权码加 PKCE 的流程与第三方验证服务器；可换盘的数据目录；三套布局的大正浪漫主题<span lang="ja">ですの</span>。</li>
+    <li data-k="共"><strong>两边一样</strong>简体中文、English、日本語；命令行入口；存档与截图的去处<span lang="ja">ですわ</span>。换过来，这几样不必重新学。</li>
+  </ul>
   <p class="note">两边<strong>不共用数据目录，也不共用设置</strong><span lang="ja">ですわ</span>：从一只包换到另一只，版本与账户都得重新来一遍。所以请先想好要用哪一版，再动手装<span lang="ja">ね</span>。</p>
 </section>
 

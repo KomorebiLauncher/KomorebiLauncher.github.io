@@ -249,6 +249,9 @@ h2 .jp { display: block; font-size: 13px; color: var(--muted); letter-spacing: .
 }
 .features strong { display: block; font-size: 16.5px; color: var(--kon); margin-bottom: 2px; }
 
+/* Three tellings side by side: the Shusha section says what was kept, what was let go, and what both share. */
+.features.triad { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+
 .ledger-wrap { overflow-x: auto; }
 .ledger { width: 100%; border-collapse: collapse; font-size: 15px; background: var(--card); border: 1px solid var(--line); }
 .ledger th { font-weight: 700; color: var(--paper); background: var(--kon); letter-spacing: .1em; }
