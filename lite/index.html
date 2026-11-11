@@ -53,7 +53,7 @@
 <div class="hashigaki">
   <div class="label" lang="ja">端書き</div>
   <p>这一页说的是轻量版<span lang="ja">ですわ</span>。同一个项目有两个版本：<strong>完整版</strong>跟着 Prism Launcher 的结构走，功能齐、能碰整合包生态；<strong>轻量版</strong>只留下普通玩家真正会用到的那一条主线。两个仓库、两套数据目录、两个发行包，各走各的<span lang="ja">ですの</span>——所以两只包互不打扰，也不能互相顶替。</p>
-  <p>轻量版的代码是<strong>独立实现</strong>的<span lang="ja">ですわ</span>：账号登录、版本安装、启动参数构建，都是照公开协议与公开格式重写的，没有引入完整版或上游的源码。下面写的，都是 0.1.9 此刻实际在做的事；将来也许要做的事，我一概不写<span lang="ja">ですの</span>。<span lang="ja">だって</span>把「打算做」当成「做过了」，本就是读史料的人最怕的事<span lang="ja">ですもの</span>。</p>
+  <p>轻量版的代码是<strong>独立实现</strong>的<span lang="ja">ですわ</span>：账号登录、版本安装、启动参数构建，都是照公开协议与公开格式重写的，没有引入完整版或上游的源码。下面写的，都是 0.2.2 此刻实际在做的事；将来也许要做的事，我一概不写<span lang="ja">ですの</span>。<span lang="ja">だって</span>把「打算做」当成「做过了」，本就是读史料的人最怕的事<span lang="ja">ですもの</span>。</p>
 </div>
 
 <section id="shusha">
@@ -70,7 +70,7 @@
     <tr><td>账户</td><td>微软（授权码 + PKCE 与设备码两种流程）、离线、第三方验证服务器</td><td>微软（设备码流程）；不登录就以离线方式启动</td></tr>
     <tr><td>外观</td><td>大正浪漫主题，三种布局，背景与文字可自定义</td><td>浅色一套，朴素三栏</td></tr>
     <tr><td>界面语言</td><td>简体中文、English、日本語</td><td>同左</td></tr>
-    <tr><td>数据目录</td><td>可换到别的盘，可选择顺手把现有文件复制过去</td><td>同左；免安装版换过之后不会被忘掉（见参）</td></tr>
+    <tr><td>数据目录</td><td>可换到别的盘，可选择顺手把现有文件复制过去</td><td>就在启动器所在的文件夹里；文件夹搬到哪儿，它就跟着到哪儿</td></tr>
     <tr><td>命令行</td><td>有，覆盖安装与启动</td><td>有，<code>--install</code>、<code>--launch-version</code></td></tr>
   </table>
   </div>
@@ -78,22 +78,20 @@
 </section>
 
 <section id="shitate">
-  <div class="sec-head"><span class="seal" lang="ja">弐</span><h2><span class="jp" lang="ja">三つの装い</span>三种装法，挑一个就好</h2></div>
-  <p class="aside">同一个程序，三种装束<span lang="ja">ですわ</span>。用哪一件都可以，内容一枚也不少。</p>
+  <div class="sec-head"><span class="seal" lang="ja">弐</span><h2><span class="jp" lang="ja">二つの装い</span>两种装法，挑一个就好</h2></div>
+  <p class="aside">同一个程序，两种装束<span lang="ja">ですわ</span>。用哪一件都可以，内容一枚也不少。</p>
   <ul class="features">
     <li data-k="単"><strong>单文件版</strong>一个 <code>.exe</code>，约 23 MB。双击就开，不用装 Qt，也不用装运行库；放在 U 盘里带出门也能跑<span lang="ja">ですの</span>。</li>
     <li data-k="携"><strong>便携包</strong>压缩包约 15 MB。解压到哪儿就在哪儿，Qt 运行时、主题与 OptiFine 安装助手都收在包里，机器上仍然是干干净净<span lang="ja">ですわ</span>。</li>
-    <li data-k="設"><strong>安装包</strong>约 12 MB。装进开始菜单，附上卸载，适合打算长期用的玩家<span lang="ja">ね</span>。</li>
   </ul>
-  <p class="note">三种看到的是同一份数据目录（<code>%APPDATA%\KomorebiLauncherLite</code>）<span lang="ja">ですの</span>。先拿单文件版试试，合意了再换安装包，版本、账户、存档都还在<span lang="ja">ですわ</span>。反过来也一样。</p>
+  <p class="note">两种都把版本、账户、存档、设置放在启动器所在的那个文件夹里<span lang="ja">ですの</span>。整个文件夹拷走，就等于把家一起搬走；整个文件夹删掉，也就等于卸干净了<span lang="ja">ですわ</span>。只是那个文件夹得能写——<code>Program Files</code> 这种要管理员才写得动的地方，它宁可不开，也要先把话说清楚<span lang="ja">ね</span>。</p>
 </section>
 
 <section id="hikoshi">
-  <div class="sec-head"><span class="seal" lang="ja">参</span><h2><span class="jp" lang="ja">引っ越し</span>换到别的盘，别把它忘掉</h2></div>
+  <div class="sec-head"><span class="seal" lang="ja">参</span><h2><span class="jp" lang="ja">引っ越し</span>要搬家，就整个家一起搬</h2></div>
   <p class="aside">搬家的规矩只有一条：东西要跟着人走<span lang="ja">ですわ</span>。</p>
-  <p>数据目录可以换到别的盘<span lang="ja">ですの</span>。在设置里选好新目录，启动器会问要不要把现有的版本、账户与存档一并复制过去；选「复制并切换」是<strong>复制</strong>，原件一枚也不删——确认新目录里一切正常之后，旧的那份由你自己处置<span lang="ja">ですわ</span>。</p>
-  <p>0.1.5 之前，这里有个坑<span lang="ja">ですの</span>：记住「数据在哪儿」的那个文件，原本只放在 <code>%APPDATA%\KomorebiLauncherLite</code> 里；而换完目录，这个文件夹已经没有版本、账户和存档了，删掉它是很自然的动作。一删，启动器下次启动就当成第一次启动，界面空空如也，看着就像版本、账户、存档全丢了<span lang="ja">ですわ</span>。</p>
-  <p>现在同一份指针在 <code>%LOCALAPPDATA%\KomorebiLauncherLite</code> 还留着一份副本。原指针没了、副本还在时，启动器会直接告诉你上次用的是哪个目录，问要不要回去；选「回到那里」就写回指针、自动重启，东西原样回来。那个目录本身也不在了的话，就只提示一句，不再提问——把人引到一个空目录去，那才是真的失礼<span lang="ja">ですの</span>。</p>
+  <p>想换到别的盘，办法也只有一条<span lang="ja">ですの</span>：把启动器所在的那个文件夹整个搬过去<span lang="ja">ですわ</span>。版本、账户、存档、设置都在里面，搬到了新地方，它们原样就在，不必再做别的什么。</p>
+  <p>反过来，只把启动器挪走、文件夹留在原地，那就是只带了人、没带行李<span lang="ja">ですの</span>：它会把这一次当成第一次启动，界面空空如也，看着就像版本、账户、存档全丢了一样<span lang="ja">ですわ</span>。</p>
 </section>
 
 <section id="yakujo">
