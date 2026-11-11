@@ -31,7 +31,7 @@
           <p class="kana" lang="ja">こもれび ランチャー</p>
         </div>
       </div>
-      <p class="tag">基于 Prism Launcher 的开源 Minecraft: Java Edition 启动器，为国内网络环境做了下载镜像、Java 自动配置与 OptiFine 支持。</p>
+      <p class="tag">基于 Prism Launcher 的开源 Minecraft: Java Edition 启动器。下载镜像、Java 自动配置、OptiFine 支持——为国内网络环境补上的三处<span lang="ja">ですわ</span>。</p>
       <p class="meaning">「Komorebi」写作「<span lang="ja">木漏れ日</span>」，是从枝叶之间漏下来的日光<span lang="ja">ですわ</span>。</p>
       <div class="buttons">
         <a class="button primary" href="https://github.com/KomorebiLauncher/KomorebiLauncher/releases">下载最新版</a>
@@ -52,7 +52,7 @@
 
 <div class="hashigaki">
   <div class="label" lang="ja">端書き</div>
-  <p><span lang="ja">ごきげんよう</span>，初次见面的各位<span lang="ja">ですわ</span>。开头请容我先划一条线<span lang="ja">ね</span>：这是一个<strong>非官方</strong>的启动器，与 Mojang、Microsoft 都没有隶属关系，也没有得到它们的批准或背书<span lang="ja">ですの</span>。这一条要是读漏了，我可是会<span lang="ja">ちょっと</span>困扰的哦。</p>
+  <p><span lang="ja">ごきげんよう</span>，初次见面的各位<span lang="ja">ですわ</span>。开头请容我先划一条线<span lang="ja">ね</span>：这是一个<strong>非官方</strong>的启动器，与 Mojang、Microsoft 都没有隶属关系，也没有得到它们的批准或背书<span lang="ja">ですの</span>。这一条要是读漏了，我可是会有些为难<span lang="ja">ですのよ</span>。</p>
   <p>下面写的，除了标明「主干」的第参节，都是已发布的 0.2.2 此刻实际在做的事<span lang="ja">ですわ</span>；将来也许会做的事，我一概不写。<span lang="ja">だって</span>读史料的人，最怕把「打算做」当成「做过了」——写自己的东西时，也是一样的<span lang="ja">ですもの</span>。</p>
 </div>
 
@@ -74,7 +74,7 @@
     <li data-k="便"><strong>服务器列表</strong>实例里的服务器按 SLP 协议去问一声，显示在线人数、游戏版本与延迟。<ruby lang="ja">鼠<rt>鼠标</rt></ruby>停在一行上，能读到服务器自己的<ruby lang="ja">挨拶<rt>欢迎语</rt></ruby>。<span lang="ja">うふふ</span>，这一处，我私下里<span lang="ja">とっても</span>喜欢呢。</li>
     <li data-k="彩"><strong>OptiFine</strong>在版本页直接浏览并安装 OptiFine。安装用的就是 OptiFine 官方安装器本身，启动器只负责下载、在临时目录里运行它、再把结果收回来<span lang="ja">ですわ</span>。OptiFine 的补丁逻辑，我一处也没有抄，也没有重写——这种事，淑女是不做的<span lang="ja">ですの</span>。</li>
     <li data-k="装"><strong>加载器与整合包</strong>NeoForge、Forge、Fabric、Quilt、LiteLoader，与上游一致<span lang="ja">ですわ</span>。整合包可以从 Modrinth、CurseForge、ATLauncher、FTB、Legacy FTB、Technic 安装，也能导入 .mrpack 与 MultiMC、PolyMC 导出的压缩包<span lang="ja">よ</span>。</li>
-    <li data-k="訳"><strong>中文界面</strong>简体中文完成度 100%<span lang="ja">ですわ</span>！翻译放在本组织自己搭的静态源（<code>komorebilauncher.github.io/i18n/</code>）上，启动时先校验文件哈希再加载。<span lang="ja">実は</span>我当初<span lang="ja">ね</span>，就是因为想玩的游戏没有中文，才开始做翻译的；所以这一项，我<span lang="ja">絶対に</span>不会马虎哦。</li>
+    <li data-k="訳"><strong>中文界面</strong>简体中文完成度 100%<span lang="ja">ですわ</span>！翻译放在本组织自己搭的静态源（<code>komorebilauncher.github.io/i18n/</code>）上，启动时先校验文件哈希再加载。<span lang="ja">実は</span>我当初<span lang="ja">ね</span>，就是因为想玩的游戏没有中文，才开始做翻译的；所以这一项，我<span lang="ja">絶対に</span>不会马虎<span lang="ja">ですの</span>。</li>
   </ul>
 </section>
 
@@ -93,7 +93,7 @@
 <section id="mirror">
   <div class="sec-head"><span class="seal" lang="ja">肆</span><h2><span class="jp" lang="ja">鏡のしくみ</span>镜子只换主机，不换内容</h2></div>
   <p class="aside">「镜」这个字，在读神话的人眼里分量很重<span lang="ja">ですのよ</span>，八咫镜可是要照出神本身的。这里的镜子嘛，不过是一面<ruby lang="ja">硝子<rt>玻璃</rt></ruby>镜，朴素得多<span lang="ja">ですわ</span>。</p>
-  <p>镜像只做一件事<span lang="ja">ですの</span>：把下载请求换到另一个主机上的同一份文件。换法按内容类型固定，而且只对 Mojang 自己的主机生效。按表列在下面<span lang="ja">ね</span>。</p>
+  <p>镜像只做一件事<span lang="ja">ですの</span>：把下载请求换到另一个主机上的同一份文件。换法按内容类型固定，而且只对 Mojang 自己的主机生效。按下面这张表来就好<span lang="ja">ね</span>。</p>
   <div class="ledger-wrap">
   <table class="ledger">
     <tr><th>内容</th><th>官方主机</th><th>镜像上的位置</th></tr>
@@ -102,12 +102,14 @@
     <tr><td>支持库与加载器库</td><td>libraries.minecraft.net 等 maven 主机</td><td>有序的前缀列表，逐条尝试</td></tr>
   </table>
   </div>
-  <p class="note">镜像默认是关着的<span lang="ja">ですわ</span>。镜像未必更快<span lang="ja">ですもの</span>，所以我不擅自替你打开；要用，请到设置 → API 里切换。内置的镜像源是 BMCLAPI 与三所教育网镜像的 maven 树。自动下载 Java 运行库另走一路：先试清华大学开源镜像站的 Adoptium 镜像，文件与官方的 SHA-256 一致；只带版本参数、不带文件名的 <code>api.adoptium.net</code> 入口，暂时仍走官方。Modrinth、CurseForge 等内容平台的主机<strong>不在重写范围内</strong>，它们的文件始终从各自的官方端点下载。所有下载都会按元数据里给定的哈希校验；镜像若返回了不对的内容，就当作校验失败，不会默默收下——来路不明的东西，我可不收<span lang="ja">の</span>。</p>
+  <p class="note">镜像默认是关着的<span lang="ja">ですわ</span>。镜像未必更快<span lang="ja">ですもの</span>，所以我不擅自替你打开；要用，请到设置 → API 里切换。内置的镜像源是 BMCLAPI 与三所教育网镜像的 maven 树。</p>
+  <p class="note">自动下载 Java 运行库另走一路：先试清华大学开源镜像站的 Adoptium 镜像，文件与官方的 SHA-256 一致<span lang="ja">ですの</span>；只带版本参数、不带文件名的 <code>api.adoptium.net</code> 入口，暂时仍走官方。</p>
+  <p class="note">Modrinth、CurseForge 等内容平台的主机<strong>不在重写范围内</strong>，它们的文件始终从各自的官方端点下载。所有下载都会按元数据里给定的哈希校验；镜像若返回了不对的内容，就当作校验失败，不会默默收下——来路不明的东西，我可不收<span lang="ja">ですの</span>。</p>
 </section>
 
 <section id="accounts">
   <div class="sec-head"><span class="seal" lang="ja">伍</span><h2><span class="jp" lang="ja">名乗り</span>向谁报上名来</h2></div>
-  <p class="aside">报上名来，要对方信得过才算数<span lang="ja">ですわ</span>。下面三种账户的区别，说到底就在于「向谁报名」<span lang="ja">ね</span>。</p>
+  <p class="aside">报上名来，要对方信得过才算数<span lang="ja">ですわ</span>。下面三种账户的区别，说到底就在于「向谁报上名来」<span lang="ja">ね</span>。</p>
   <ul class="roll">
     <li><strong>Microsoft 账户</strong>：走标准的 OAuth 2.0（授权码 + PKCE 与设备码两种流程，登录窗口里两种都有），随后按官方流程换取 Xbox Live 与 Minecraft Services 的令牌，读过账户的游戏所有权信息之后，才提供启动<span lang="ja">ですわ</span>。微软登录用的是本组织自己注册、已于 2026-11-06 通过 Mojang 审核的那个 AppID，它随程序一起内置，装好就能登<span lang="ja">ですの</span>——不必自己申请，也没有要你填的地方<span lang="ja">ですわ</span>；只有做衍生构建、换用自己申请到的 AppID 时，才去设置里覆盖它（分发衍生构建的话，请自行申请<span lang="ja">ね</span>）。登录之后，还可以上传皮肤、选择<ruby lang="ja">外套<rt>披风</rt></ruby>♪</li>
     <li><strong>离线账户</strong>：明明白白的本地身份，只在本机生成玩家名与 UUID，用于单机世界与允许离线玩家的服务器。它不向 Microsoft、Realms 或需要正版验证的服务器认证，也拿不到任何 Microsoft 或 Minecraft 令牌；在线会话失败或过期时，也不会退回成离线账户<span lang="ja">ですわ</span>。与上游 Prism 相同，要先添加一个拥有 Minecraft 的微软账户才能新建；启动与下载，以拥有游戏的微软账户或第三方验证账户为准。这道门槛，是我刻意留着的<span lang="ja">ですのよ</span>。</li>
@@ -117,10 +119,10 @@
 
 <section id="privacy">
   <div class="sec-head"><span class="seal" lang="ja">陸</span><h2><span class="jp" lang="ja">秘め事なし</span>会往哪里发请求</h2></div>
-  <p class="aside">「秘め事」是藏起来的事<span lang="ja">ですわ</span>。启动器要往哪里发请求，我想全都摆在明处<span lang="ja">の</span>——藏着掖着，可不是九条家的作风哦。</p>
+  <p class="aside">「秘め事」是藏起来的事<span lang="ja">ですわ</span>。启动器要往哪里发请求，我想全都摆在明处<span lang="ja">ですの</span>——藏着掖着，可不是九条家的作风<span lang="ja">ですわ</span>。</p>
   <ul class="roll">
     <li>没有自建的分析服务，不收集使用数据，也不上传实例内容<span lang="ja">ですわ</span>。</li>
-    <li>网络请求只会发往这些地方<span lang="ja">ですの</span>：Mojang 与微软的官方端点；Prism Launcher 提供的公开元数据服务（<code>meta.prismlauncher.org</code> 的版本与加载器信息，<code>files.prismlauncher.org</code> 的 1.5.2 及更早版本的 Forge 依赖库）；玩家开启的镜像，以及下载 Java 时的清华大学开源镜像站；玩家浏览或安装时用到的内容平台（Modrinth、CurseForge、ATLauncher、FTB、Technic）；玩家自己添加的身份验证服务器；本组织的翻译源 <code>komorebilauncher.github.io/i18n/</code>；以及本仓库的 GitHub Releases（新闻栏的发布动态与自动更新检查）。除此之外的去处，没有<span lang="ja">ですわ</span>。</li>
+    <li>网络请求只会发往这些地方<span lang="ja">ですの</span>：Mojang 与微软的官方端点；Prism Launcher 提供的公开元数据服务（<code>meta.prismlauncher.org</code> 的版本与加载器信息，<code>files.prismlauncher.org</code> 的 1.5.2 及更早版本的 Forge 依赖库）；玩家开启的镜像，以及下载 Java 时的清华大学开源镜像站；玩家浏览或安装时用到的内容平台（Modrinth、CurseForge、ATLauncher、FTB、Technic）；玩家自己添加的身份验证服务器；本组织的翻译源 <code>komorebilauncher.github.io/i18n/</code>；以及本仓库的 GitHub Releases（新闻栏的发布动态与自动更新检查）。除此之外，再没有别处<span lang="ja">ですわ</span>。</li>
     <li><ruby lang="ja">写真<rt>截图</rt></ruby>上传用的是 ImgBB，但我没有内置任何图床凭据<span lang="ja">ですの</span>。第一次上传时，请填你自己的 ImgBB API key，它只保存在本机设置里；不填，上传功能就干脆不出现<span lang="ja">ですわ</span>。</li>
   </ul>
 </section>
