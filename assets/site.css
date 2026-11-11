@@ -233,13 +233,13 @@ h2 .jp { display: block; font-size: 13px; color: var(--muted); letter-spacing: .
   position: relative;
   background: var(--card);
   border: 1px solid var(--line);
-  padding: 16px 18px 16px 66px;
-  font-size: 15.5px;
-  line-height: 1.85;
+  padding: 15px 17px 15px 62px;
+  font-size: 15px;
+  line-height: 1.8;
 }
 .features li::before {
   content: attr(data-k);
-  position: absolute; left: 16px; top: 18px;
+  position: absolute; left: 15px; top: 16px;
   width: 34px; height: 34px;
   display: grid; place-items: center;
   font-family: var(--jp); font-size: 18px;
@@ -247,17 +247,45 @@ h2 .jp { display: block; font-size: 13px; color: var(--muted); letter-spacing: .
   border: 1px solid var(--ebicha);
   border-radius: 50%;
 }
-.features strong { display: block; font-size: 16.5px; color: var(--kon); margin-bottom: 2px; }
+.features strong { display: block; font-size: 16px; color: var(--kon); margin-bottom: 3px; }
+
+/* A card may carry more than one paragraph: the text breaks where it breathes, the card keeps its rhythm. */
+.features li p, .roll > li p { margin: 0; }
+.features li p + p, .roll > li p + p { margin-top: .7em; }
 
 /* Three tellings side by side: the Shusha section says what was kept, what was let go, and what both share. */
 .features.triad { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 
-.ledger-wrap { overflow-x: auto; }
-.ledger { width: 100%; border-collapse: collapse; font-size: 15px; background: var(--card); border: 1px solid var(--line); }
-.ledger th { font-weight: 700; color: var(--paper); background: var(--kon); letter-spacing: .1em; }
-.ledger th, .ledger td { padding: 10px 14px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
-.ledger td + td, .ledger th + th { border-left: 1px solid var(--line); }
-.ledger tr:last-child td { border-bottom: 0; }
+.ledger-wrap { overflow-x: auto; margin: 20px 0 6px; }
+.ledger {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14.5px;
+  line-height: 1.8;
+  background: var(--card);
+  border-top: 2px solid var(--kon);
+  border-bottom: 2px solid var(--kon);
+}
+.ledger th {
+  padding: 10px 16px;
+  font-weight: 700;
+  font-size: 12.5px;
+  letter-spacing: .16em;
+  text-align: left;
+  white-space: nowrap;
+  color: var(--paper);
+  background: var(--kon);
+}
+.ledger td { padding: 13px 16px; vertical-align: top; border-bottom: 1px solid var(--line); }
+.ledger th + th, .ledger td + td { border-left: 1px solid var(--line); }
+.ledger tbody tr:last-child td { border-bottom: 0; }
+.ledger tbody tr:hover td { background: var(--paper-2); }
+.ledger td:first-child { width: 24%; font-weight: 700; color: var(--kon); }
+.ledger code { padding: .06em .34em; font-size: .9em; border: 1px solid var(--line); border-radius: 3px; background: var(--paper); }
+@media (max-width: 640px) {
+  .ledger th, .ledger td { padding: 10px 12px; font-size: 13.5px; }
+  .ledger td:first-child { width: auto; }
+}
 .note { color: var(--muted); font-size: 15px; }
 
 .roll { list-style: none; padding: 0; margin: 0; }
